@@ -24,9 +24,8 @@ namespace SportsClubSerializationToXML.Sports_Clubs
         }
 
         public RugbyClub() { }
-        public RugbyClub(string _name, string _country, string _city, string _homeArena, string _coach,
-                            int _countOfDf, int _countOfAt)
-                                : base(_name, _country,_city,_homeArena,_coach)
+        public RugbyClub(string _name, string _country, string _city, int _countOfDf, int _countOfAt)
+                                : base(_name, _country,_city)
         {
             countOfDefenders = _countOfDf;
             countOfAttackers = _countOfAt;

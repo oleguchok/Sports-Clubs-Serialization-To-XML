@@ -46,9 +46,8 @@ namespace SportsClubSerializationToXML.Sports_Clubs
 
         public VolleyballClub() { }
 
-        public VolleyballClub(string _name, string _country, string _city, string _homeArena, string _coach,
-                            int _countOfMb, int _countOfOh, int _countOfLib, int _countOfSet, int _countOfOpp)
-                                : base(_name, _country,_city,_homeArena,_coach)
+        public VolleyballClub(string _name, string _country, string _city, int _countOfMb, int _countOfOh, int _countOfLib, int _countOfSet, int _countOfOpp)
+                                : base(_name, _country,_city)
         {
             countOfOpposite = _countOfOpp;
             countOfOutsideHitters = _countOfOh;

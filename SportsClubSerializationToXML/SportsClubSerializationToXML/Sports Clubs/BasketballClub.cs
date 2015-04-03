@@ -46,9 +46,8 @@ namespace SportsClubSerializationToXML.Sports_Clubs
 
         public BasketballClub() { }
 
-        public BasketballClub(string _name, string _country, string _city, string _homeArena, string _coach,
-                            int _countOfPg, int _countOfSg, int _countOfSf, int _countOfPf, int _countOfC)
-                                : base(_name, _country,_city,_homeArena,_coach)
+        public BasketballClub(string _name, string _country, string _city, int _countOfPg, int _countOfSg, int _countOfSf, int _countOfPf, int _countOfC)
+                                : base(_name, _country,_city)
         {
             pointGuard = _countOfPg;
             shootingGuard = _countOfSg;

@@ -46,9 +46,8 @@ namespace SportsClubSerializationToXML.Sports_Clubs
 
         public HandballClub() { }
 
-        public HandballClub(string _name, string _country, string _city, string _homeArena, string _coach,
-                            int _countOfGk, int _countOfW, int _countOfB, int _countOfCr, int _countOfCen)
-                                : base(_name, _country,_city,_homeArena,_coach)
+        public HandballClub(string _name, string _country, string _city,int _countOfGk, int _countOfW, int _countOfB, int _countOfCr, int _countOfCen)
+                                : base(_name, _country,_city)
         {
             countOfGoalkeepers = _countOfGk;
             countOfCircleRunners = _countOfCr;

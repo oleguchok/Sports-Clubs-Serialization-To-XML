@@ -1,4 +1,5 @@
-﻿using SportsClubSerializationToXML.Sports_Clubs;
+﻿using SportsClubSerializationToXML.Creators;
+using SportsClubSerializationToXML.Sports_Clubs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,8 @@ namespace SportsClubSerializationToXML
 {
     public partial class FormSportsClubs : Form
     {
-        SportsClubs club;
+        ClubCreator clubCreator;
+        List<SportsClubs> sportsClubs = new List<SportsClubs>();
 
         public FormSportsClubs()
         {
@@ -31,7 +33,7 @@ namespace SportsClubSerializationToXML
 
         private void radioButtonFootball_CheckedChanged(object sender, EventArgs e)
         {
-
+            clubCreator = new FoorballClubCreator();
             TextBoxEnabled();
             label7.Text = "Count of Goalkeepers";
             label8.Text = "Count of Defenders";
@@ -43,6 +45,7 @@ namespace SportsClubSerializationToXML
 
         private void radioButtonBasketball_CheckedChanged(object sender, EventArgs e)
         {
+            clubCreator = new BasketballClubCreator();
             TextBoxEnabled();
             label7.Text = "Count of Point Guards";
             label8.Text = "Count of Shooting Guards";
@@ -53,6 +56,7 @@ namespace SportsClubSerializationToXML
 
         private void radioButtonVolleyball_CheckedChanged(object sender, EventArgs e)
         {
+            clubCreator = new VolleyballClubCreator();
             TextBoxEnabled();
             label7.Text = "Count of Middle Blockers";
             label8.Text = "Count of Outside Hitters";
@@ -63,6 +67,7 @@ namespace SportsClubSerializationToXML
 
         private void radioButtonHockey_CheckedChanged(object sender, EventArgs e)
         {
+            clubCreator = new HockeyClubCreator();
             TextBoxEnabled();
             label7.Text = "Count of Goalkeepers";
             label8.Text = "Count of Defenders";
@@ -73,6 +78,7 @@ namespace SportsClubSerializationToXML
 
         private void radioButtonRugby_CheckedChanged(object sender, EventArgs e)
         {
+            clubCreator = new RugbyClubCreator();
             TextBoxEnabled();
             label7.Text = "Count of Defenders";
             label8.Text = "Count of Attackers";
@@ -86,6 +92,7 @@ namespace SportsClubSerializationToXML
 
         private void radioButtonHandball_CheckedChanged(object sender, EventArgs e)
         {
+            clubCreator = new HandballClubCreator();
             TextBoxEnabled();
             label7.Text = "Count of Goalkeepers";
             label8.Text = "Count of Wingers";
@@ -96,7 +103,18 @@ namespace SportsClubSerializationToXML
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-
+            List<string> data = new List<string>();
+            
+            data.Add(textBox1.Text);
+            data.Add(textBox2.Text);
+            data.Add(textBox3.Text);
+            data.Add(textBox7.Text);
+            data.Add(textBox8.Text);
+            data.Add(textBox9.Text);
+            data.Add(textBox10.Text);
+            data.Add(textBox11.Text);
+            
+            sportsClubs.Add(clubCreator.FactoryMethod(data.ToArray()));   
         }
 
 
