@@ -114,7 +114,18 @@ namespace SportsClubSerializationToXML
             data.Add(textBox10.Text);
             data.Add(textBox11.Text);
             
-            sportsClubs.Add(clubCreator.FactoryMethod(data.ToArray()));   
+            sportsClubs.Add(clubCreator.FactoryMethod(data.ToArray()));
+            listBoxClubs.Items.Clear();
+            foreach (SportsClubs club in sportsClubs)
+                listBoxClubs.Items.Add(club);
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {            
+            sportsClubs.RemoveAt(listBoxClubs.SelectedIndex);
+            listBoxClubs.Items.Clear();
+            foreach (SportsClubs club in sportsClubs)
+                listBoxClubs.Items.Add(club);
         }
 
 

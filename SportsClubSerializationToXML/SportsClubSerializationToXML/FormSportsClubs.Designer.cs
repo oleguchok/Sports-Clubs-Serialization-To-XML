@@ -52,6 +52,8 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.listBoxClubs = new System.Windows.Forms.ListBox();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -280,11 +282,32 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // listBoxClubs
+            // 
+            this.listBoxClubs.FormattingEnabled = true;
+            this.listBoxClubs.HorizontalScrollbar = true;
+            this.listBoxClubs.Location = new System.Drawing.Point(209, 21);
+            this.listBoxClubs.Name = "listBoxClubs";
+            this.listBoxClubs.Size = new System.Drawing.Size(397, 251);
+            this.listBoxClubs.TabIndex = 31;
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(215, 285);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(121, 24);
+            this.buttonDelete.TabIndex = 32;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
             // FormSportsClubs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 449);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.listBoxClubs);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.textBox10);
@@ -338,6 +361,8 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.ListBox listBoxClubs;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }
 
