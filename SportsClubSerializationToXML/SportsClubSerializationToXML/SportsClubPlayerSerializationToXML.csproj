@@ -44,13 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Creators\BasketballClubCreator.cs" />
-    <Compile Include="Creators\ClubCreator.cs" />
-    <Compile Include="Creators\FootballClubCreator.cs" />
-    <Compile Include="Creators\HandballClubCreator.cs" />
-    <Compile Include="Creators\HockeyClubCreator.cs" />
-    <Compile Include="Creators\RugbyClubCreator.cs" />
-    <Compile Include="Creators\VolleyballClubCreator.cs" />
     <Compile Include="FormSportsClubs.cs">
       <SubType>Form</SubType>
     </Compile>
