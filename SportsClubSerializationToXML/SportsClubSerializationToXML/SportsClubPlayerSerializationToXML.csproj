@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="Creators\BasketballClubCreator.cs" />
     <Compile Include="Creators\ClubCreator.cs" />
-    <Compile Include="Creators\FoorballClubCreator.cs" />
+    <Compile Include="Creators\FootballClubCreator.cs" />
     <Compile Include="Creators\HandballClubCreator.cs" />
     <Compile Include="Creators\HockeyClubCreator.cs" />
     <Compile Include="Creators\RugbyClubCreator.cs" />
@@ -59,13 +59,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sports Clubs\BasketballClub.cs" />
-    <Compile Include="Sports Clubs\FootballClub.cs" />
-    <Compile Include="Sports Clubs\HandballClub.cs" />
-    <Compile Include="Sports Clubs\HockeyClub.cs" />
-    <Compile Include="Sports Clubs\RugbyClub.cs" />
-    <Compile Include="Sports Clubs\SportsClubs.cs" />
-    <Compile Include="Sports Clubs\VolleyballClub.cs" />
+    <Compile Include="Player\BasketballPlayer.cs" />
+    <Compile Include="Player\FootballPlayer.cs" />
+    <Compile Include="Player\HockeyPlayer.cs" />
+    <Compile Include="Player\SnookerPlayer.cs" />
+    <Compile Include="Player\TennisPlayer.cs" />
+    <Compile Include="Player\Player.cs" />
+    <Compile Include="Player\PokerPlayer.cs" />
     <EmbeddedResource Include="FormSportsClubs.resx">
       <DependentUpon>FormSportsClubs.cs</DependentUpon>
     </EmbeddedResource>

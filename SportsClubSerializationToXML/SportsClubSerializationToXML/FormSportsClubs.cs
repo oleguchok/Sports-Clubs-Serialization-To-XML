@@ -15,7 +15,8 @@ namespace SportsClubSerializationToXML
     public partial class FormSportsClubs : Form
     {
         ClubCreator clubCreator;
-        List<SportsClubs> sportsClubs = new List<SportsClubs>();
+        List<Player> sportsClubs = new List<Player>();
+        Player forEdit;
 
         public FormSportsClubs()
         {
@@ -33,7 +34,7 @@ namespace SportsClubSerializationToXML
 
         private void radioButtonFootball_CheckedChanged(object sender, EventArgs e)
         {
-            clubCreator = new FoorballClubCreator();
+            clubCreator = new FootballClubCreator();
             TextBoxEnabled();
             label7.Text = "Count of Goalkeepers";
             label8.Text = "Count of Defenders";
@@ -128,6 +129,20 @@ namespace SportsClubSerializationToXML
                 listBoxClubs.Items.Add(club);
         }
 
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            forEdit = sportsClubs[listBoxClubs.SelectedIndex];
+            FillFields(forEdit);
+        }
 
+        private void FillFields(SportsClubs forEdit)
+        {
+            textBox1.Text = forEdit.Name;
+            textBox2.Text = forEdit.Country;
+            textBox3.Text = forEdit.City;
+            Type t = forEdit.GetType();
+            if (t.Name == "FootballClub")
+               
+        }
     }
 }

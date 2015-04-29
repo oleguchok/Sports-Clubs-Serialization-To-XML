@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SportsClubSerializationToXML.Creators
 {
-    class FoorballClubCreator : ClubCreator
+    class FootballClubCreator : ClubCreator
     {
         public override Sports_Clubs.SportsClubs FactoryMethod(string[] parametrs)
         {

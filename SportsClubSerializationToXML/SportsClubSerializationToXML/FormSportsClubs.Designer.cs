@@ -54,6 +54,7 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.listBoxClubs = new System.Windows.Forms.ListBox();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -301,11 +302,22 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Location = new System.Drawing.Point(342, 284);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(120, 25);
+            this.buttonEdit.TabIndex = 33;
+            this.buttonEdit.Text = "Edit item";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
             // FormSportsClubs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 449);
+            this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.listBoxClubs);
             this.Controls.Add(this.buttonAdd);
@@ -363,6 +375,7 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.ListBox listBoxClubs;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }
 
