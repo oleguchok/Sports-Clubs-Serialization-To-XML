@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SportsClubSerializationToXML.Players
 {
-    public static class PlayerTypesClasses
+    public static class PlayerCreatorsTypesClasses
     {
         private static Dictionary<object, Type> playerTypes = new Dictionary<object, Type>();
 
@@ -15,7 +15,7 @@ namespace SportsClubSerializationToXML.Players
         {
             for (int i = 0; i < types.Count; i++ )
                 for (int j = 0; j < names.Count; j++)
-                    if (types[i].ToString().Contains("."+names[j].ToString()+"Player"))
+                    if (types[i].ToString().Contains("."+names[j].ToString()+"PlayerCreator"))
                     {
                         AddPlayerTypeToDict(names[j], types[i]);
                         break;

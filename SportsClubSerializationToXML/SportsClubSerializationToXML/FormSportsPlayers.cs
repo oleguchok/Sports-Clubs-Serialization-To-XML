@@ -1,4 +1,5 @@
-﻿using SportsClubSerializationToXML.Handlers;
+﻿using SportsClubSerializationToXML.Creators;
+using SportsClubSerializationToXML.Handlers;
 using SportsClubSerializationToXML.Players;
 using SportsClubSerializationToXML.Repository;
 using SportsClubSerializationToXML.Sports_Clubs;
@@ -17,7 +18,9 @@ namespace SportsClubSerializationToXML
     public partial class FormSportsPlayers : Form
     {
         Dictionary<object, Type> types;
+        PlayerCreator playerCreator;
         Player player;
+        PlayerRepository repository = new PlayerRepository();
         private Label[] labelsForPlayers;
         private TextBox[] textBoxForPlayers;
 
@@ -25,7 +28,7 @@ namespace SportsClubSerializationToXML
         {
             InitializeComponent();
             comboBoxSports.Items.AddRange(SportsRepository.ListOfSports.ToArray());
-            types = PlayerTypesClasses.GetAllPlayerTypes(SportsRepository.ListOfSports, PlayerTypesRepository.Players);
+            types = PlayerCreatorsTypesClasses.GetAllPlayerTypes(SportsRepository.ListOfSports, PlayerCreatorsRepository.Players);
             labelsForPlayers = new Label[] { labelPlayer1, labelPlayer2, labelPlayer3 };
             textBoxForPlayers = new TextBox[] { textBoxPlayer1, textBoxPlayer2, textBoxPlayer3 };
         }
@@ -33,7 +36,6 @@ namespace SportsClubSerializationToXML
         private void comboBoxSports_SelectedIndexChanged(object sender, EventArgs e)
         {
             HandlerFormFields handler = HandlersFormFieldsRepository.ListOfHandlers[comboBoxSports.SelectedIndex];
-            player = (Player)Activator.CreateInstance(types[comboBoxSports.SelectedItem]);
             ChangeComponentsAccordingWithSelectedPlayer(handler);
         }
 
@@ -54,6 +56,37 @@ namespace SportsClubSerializationToXML
                     textBoxForPlayers[i].Visible = false;
                 }
             }
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            if (comboBoxSports.SelectedIndex == -1)
+                MessageBox.Show("Choose Sport");
+            else
+            {
+                if ((maskedTextBoxAge.Text != "") && (maskedTextBoxEarnings.Text != "")
+                    && (maskedTextBoxName.Text != "") && (textBoxPlayer1.Text != "")
+                    && (textBoxPlayer2.Text != ""))
+                {
+                    playerCreator = (PlayerCreator)Activator.CreateInstance(types[comboBoxSports.SelectedItem]);
+                    List<string> fields = new List<string>(){ maskedTextBoxName.Text, maskedTextBoxAge.Text,
+                        maskedTextBoxEarnings.Text, textBoxPlayer1.Text, textBoxPlayer2.Text, textBoxPlayer3.Text };
+                    repository.Players.Add(playerCreator.FactoryMethod(fields));
+                    ClearAllFields();
+                }
+                else
+                    MessageBox.Show("Fill the fields!");
+            }
+        }
+
+        private void ClearAllFields()
+        {
+            maskedTextBoxAge.Text = string.Empty;
+            maskedTextBoxEarnings.Text = string.Empty;
+            maskedTextBoxName.Text = string.Empty;
+            textBoxPlayer1.Text = string.Empty;
+            textBoxPlayer2.Text = string.Empty;
+            textBoxPlayer3.Text = string.Empty;
         }
     }
 }

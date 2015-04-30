@@ -1,4 +1,5 @@
-﻿using SportsClubSerializationToXML.Sports_Clubs;
+﻿using SportsClubSerializationToXML.Creators;
+using SportsClubSerializationToXML.Sports_Clubs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,19 +8,19 @@ using System.Threading.Tasks;
 
 namespace SportsClubSerializationToXML.Repository
 {
-    public static class PlayerTypesRepository
+    public static class PlayerCreatorsRepository
     {
         private static List<Type> players = new List<Type>();
         public static List<Type> Players { get { FormListOfPlayers(); return players; } }
 
         private static void FormListOfPlayers()
         {
-            AddPlayerType(typeof(FootballPlayer));
-            AddPlayerType(typeof(HockeyPlayer));
-            AddPlayerType(typeof(BasketballPlayer));
-            AddPlayerType(typeof(SnookerPlayer));
-            AddPlayerType(typeof(TennisPlayer));
-            AddPlayerType(typeof(PokerPlayer));
+            AddPlayerType(typeof(FootballPlayerCreator));
+            AddPlayerType(typeof(HockeyPlayerCreator));
+            AddPlayerType(typeof(BasketballPlayerCreator));
+            AddPlayerType(typeof(SnookerPlayerCreator));
+            AddPlayerType(typeof(TennisPlayerCreator));
+            AddPlayerType(typeof(PokerPlayerCreator));
         }
 
         private static void AddPlayerType(Type playerType)

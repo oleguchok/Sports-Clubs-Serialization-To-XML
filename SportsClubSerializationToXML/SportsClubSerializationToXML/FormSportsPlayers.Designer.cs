@@ -34,9 +34,6 @@
             this.buttonDeserialize = new System.Windows.Forms.Button();
             this.buttonSerialize = new System.Windows.Forms.Button();
             this.labelHeader = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxAge = new System.Windows.Forms.TextBox();
-            this.textBoxEarnings = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.labelAge = new System.Windows.Forms.Label();
             this.labelEarnings = new System.Windows.Forms.Label();
@@ -49,6 +46,9 @@
             this.textBoxPlayer2 = new System.Windows.Forms.TextBox();
             this.textBoxPlayer3 = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.maskedTextBoxName = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxAge = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxEarnings = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // listBoxItems
@@ -104,27 +104,6 @@
             this.labelHeader.Size = new System.Drawing.Size(52, 20);
             this.labelHeader.TabIndex = 5;
             this.labelHeader.Text = "Player";
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Location = new System.Drawing.Point(12, 48);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(201, 20);
-            this.textBoxName.TabIndex = 6;
-            // 
-            // textBoxAge
-            // 
-            this.textBoxAge.Location = new System.Drawing.Point(12, 87);
-            this.textBoxAge.Name = "textBoxAge";
-            this.textBoxAge.Size = new System.Drawing.Size(201, 20);
-            this.textBoxAge.TabIndex = 7;
-            // 
-            // textBoxEarnings
-            // 
-            this.textBoxEarnings.Location = new System.Drawing.Point(12, 126);
-            this.textBoxEarnings.Name = "textBoxEarnings";
-            this.textBoxEarnings.Size = new System.Drawing.Size(201, 20);
-            this.textBoxEarnings.TabIndex = 8;
             // 
             // labelName
             // 
@@ -233,12 +212,40 @@
             this.buttonAdd.TabIndex = 20;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // maskedTextBoxName
+            // 
+            this.maskedTextBoxName.Location = new System.Drawing.Point(12, 48);
+            this.maskedTextBoxName.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
+            this.maskedTextBoxName.Name = "maskedTextBoxName";
+            this.maskedTextBoxName.Size = new System.Drawing.Size(201, 20);
+            this.maskedTextBoxName.TabIndex = 21;
+            // 
+            // maskedTextBoxAge
+            // 
+            this.maskedTextBoxAge.Location = new System.Drawing.Point(12, 87);
+            this.maskedTextBoxAge.Mask = "000";
+            this.maskedTextBoxAge.Name = "maskedTextBoxAge";
+            this.maskedTextBoxAge.Size = new System.Drawing.Size(201, 20);
+            this.maskedTextBoxAge.TabIndex = 22;
+            // 
+            // maskedTextBoxEarnings
+            // 
+            this.maskedTextBoxEarnings.Location = new System.Drawing.Point(12, 126);
+            this.maskedTextBoxEarnings.Mask = "000000000000000000";
+            this.maskedTextBoxEarnings.Name = "maskedTextBoxEarnings";
+            this.maskedTextBoxEarnings.Size = new System.Drawing.Size(201, 20);
+            this.maskedTextBoxEarnings.TabIndex = 23;
             // 
             // FormSportsPlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 349);
+            this.Controls.Add(this.maskedTextBoxEarnings);
+            this.Controls.Add(this.maskedTextBoxAge);
+            this.Controls.Add(this.maskedTextBoxName);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.textBoxPlayer3);
             this.Controls.Add(this.textBoxPlayer2);
@@ -251,9 +258,6 @@
             this.Controls.Add(this.labelEarnings);
             this.Controls.Add(this.labelAge);
             this.Controls.Add(this.labelName);
-            this.Controls.Add(this.textBoxEarnings);
-            this.Controls.Add(this.textBoxAge);
-            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelHeader);
             this.Controls.Add(this.buttonSerialize);
             this.Controls.Add(this.buttonDeserialize);
@@ -275,9 +279,6 @@
         private System.Windows.Forms.Button buttonDeserialize;
         private System.Windows.Forms.Button buttonSerialize;
         private System.Windows.Forms.Label labelHeader;
-        private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.TextBox textBoxAge;
-        private System.Windows.Forms.TextBox textBoxEarnings;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelAge;
         private System.Windows.Forms.Label labelEarnings;
@@ -290,6 +291,9 @@
         private System.Windows.Forms.TextBox textBoxPlayer2;
         private System.Windows.Forms.TextBox textBoxPlayer3;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxName;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxAge;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxEarnings;
 
     }
 }

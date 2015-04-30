@@ -9,7 +9,7 @@ namespace SportsClubSerializationToXML.Sports_Clubs
     class PokerPlayer : Player
     {
         private int rating;
-        private float winrate;
+        private double winrate;
 
         public int Rating
         {
@@ -17,7 +17,7 @@ namespace SportsClubSerializationToXML.Sports_Clubs
             set { rating = value; }
         }
 
-        public float Winrate
+        public double Winrate
         {
             get { return winrate; }
             set { winrate = value; }
@@ -25,7 +25,7 @@ namespace SportsClubSerializationToXML.Sports_Clubs
         
         public PokerPlayer() { }
 
-        public PokerPlayer(string _name, int _age, decimal _earnings, int _rating, float _winrate)
+        public PokerPlayer(string _name, int _age, decimal _earnings, int _rating, double _winrate)
                                 : base(_name, _age,_earnings)
         {
             rating = _rating;
