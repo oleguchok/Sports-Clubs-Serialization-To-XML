@@ -9,27 +9,26 @@ namespace SportsClubSerializationToXML.Repository
 {
     public static class HandlersFormFieldsRepository
     {
-        private static List<HandlerFormFields> listOfHandlers = new List<HandlerFormFields>();
+        private static List<Type> listOfHandlers = new List<Type>();
 
-        public static List<HandlerFormFields> ListOfHandlers
+        public static List<Type> ListOfHandlers
         {
             get { FormListOfHandlers(); return listOfHandlers; }
         }
         
         private static void FormListOfHandlers()
         {
-            HandlerFormFields handler;
-            AddHandlerFormFieldsInList(handler = new FootballHandlerFormFields());
-            AddHandlerFormFieldsInList(handler = new HockeyHandlerFormFields());
-            AddHandlerFormFieldsInList(handler = new BasketballHandlerFormFields());
-            AddHandlerFormFieldsInList(handler = new SnookerHandlerFormFields());
-            AddHandlerFormFieldsInList(handler = new TennisHandlerFormFields());
-            AddHandlerFormFieldsInList(handler = new PokerHandlerFormFields());
+            AddHandlerFormFieldsInList(typeof(FootballHandlerFormFields));
+            AddHandlerFormFieldsInList(typeof(HockeyHandlerFormFields));
+            AddHandlerFormFieldsInList(typeof(BasketballHandlerFormFields));
+            AddHandlerFormFieldsInList(typeof(SnookerHandlerFormFields));
+            AddHandlerFormFieldsInList(typeof(TennisHandlerFormFields));
+            AddHandlerFormFieldsInList(typeof(PokerHandlerFormFields));
         }
 
-        private static void AddHandlerFormFieldsInList(HandlerFormFields handler)
+        private static void AddHandlerFormFieldsInList(Type handlerType)
         {
-            listOfHandlers.Add(handler);
+            listOfHandlers.Add(handlerType);
         }
     }
 }

@@ -60,11 +60,12 @@
     <Compile Include="Handlers\BasketballHandlerFormFields.cs" />
     <Compile Include="Handlers\FootballHandlerFormFields.cs" />
     <Compile Include="Handlers\HandlerFormFields.cs" />
+    <Compile Include="Handlers\HandlersFormFieldsTypeClasses.cs" />
     <Compile Include="Handlers\HockeyHandlerFormFields.cs" />
     <Compile Include="Handlers\PokerHandlerFormFields.cs" />
     <Compile Include="Handlers\SnookerHandlerFormFields.cs" />
     <Compile Include="Handlers\TennisHandlerFormFields.cs" />
-    <Compile Include="Creators\PlayerCreatorsTypesClasses.cs" />
+    <Compile Include="DictionaryTypesGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Players\BasketballPlayer.cs" />

@@ -49,6 +49,7 @@
             this.maskedTextBoxName = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxAge = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxEarnings = new System.Windows.Forms.MaskedTextBox();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxItems
@@ -68,6 +69,7 @@
             this.buttonEdit.TabIndex = 1;
             this.buttonEdit.Text = "Edit";
             this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonDelete
             // 
@@ -240,11 +242,22 @@
             this.maskedTextBoxEarnings.Size = new System.Drawing.Size(201, 20);
             this.maskedTextBoxEarnings.TabIndex = 23;
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Enabled = false;
+            this.buttonSave.Location = new System.Drawing.Point(114, 309);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(96, 30);
+            this.buttonSave.TabIndex = 24;
+            this.buttonSave.Text = "Save Changes";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            // 
             // FormSportsPlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 349);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.maskedTextBoxEarnings);
             this.Controls.Add(this.maskedTextBoxAge);
             this.Controls.Add(this.maskedTextBoxName);
@@ -296,6 +309,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxName;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxAge;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxEarnings;
+        private System.Windows.Forms.Button buttonSave;
 
     }
 }
