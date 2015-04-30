@@ -11,14 +11,22 @@ using System.Windows.Forms;
 
 namespace SportsClubSerializationToXML
 {
-    public partial class FormSportsClubs : Form
+    public partial class FormSportsPlayers : Form
     {
         List<Player> sportsClubs = new List<Player>();
         Player forEdit;
 
-        public FormSportsClubs()
+        public FormSportsPlayers()
         {
             InitializeComponent();
+            comboBoxSports.Items.AddRange(SportsRepository.GetSportsInList());
+            
+        }
+
+        private void comboBoxSports_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBoxPlayer1.Text = comboBoxSports.SelectedItem.ToString();
+            
         }
 
 

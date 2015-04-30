@@ -16,7 +16,7 @@ namespace SportsClubSerializationToXML
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSportsClubs());
+            Application.Run(new FormSportsPlayers());
         }
     }
 }
