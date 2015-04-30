@@ -57,6 +57,7 @@
     <Compile Include="Handlers\PokerHandlerFormFields.cs" />
     <Compile Include="Handlers\SnookerHandlerFormFields.cs" />
     <Compile Include="Handlers\TennisHandlerFormFields.cs" />
+    <Compile Include="Players\PlayerTypesClasses.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Players\BasketballPlayer.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Players\Player.cs" />
     <Compile Include="Players\PokerPlayer.cs" />
     <Compile Include="Repository\HandlersFormFieldsRepository.cs" />
+    <Compile Include="Repository\PlayerTypesRepository.cs" />
     <Compile Include="Repository\SportsRepository.cs" />
     <EmbeddedResource Include="FormSportsPlayers.resx">
       <DependentUpon>FormSportsPlayers.cs</DependentUpon>
