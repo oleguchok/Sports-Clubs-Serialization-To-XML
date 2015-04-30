@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SportsClubSerializationToXML.Creators
 {
-    abstract class PlayerCreator
+    public abstract class PlayerCreator
     {
         public abstract Player FactoryMethod(List<string> fields);
     }

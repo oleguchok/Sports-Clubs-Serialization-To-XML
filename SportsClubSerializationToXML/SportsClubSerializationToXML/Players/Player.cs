@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportsClubSerializationToXML.Sports_Clubs
 {
-    abstract class Player
+    public abstract class Player
     {
         protected string name;
         protected int age;

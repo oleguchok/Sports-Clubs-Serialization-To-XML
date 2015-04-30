@@ -1,4 +1,5 @@
 ﻿using SportsClubSerializationToXML.Creators;
+using SportsClubSerializationToXML.Generators;
 using SportsClubSerializationToXML.Handlers;
 using SportsClubSerializationToXML.Players;
 using SportsClubSerializationToXML.Repository;
@@ -17,7 +18,8 @@ namespace SportsClubSerializationToXML
 {
     public partial class FormSportsPlayers : Form
     {
-        Dictionary<object, Type> typesOfCreators, typesOfHandlers;
+        Dictionary<object, PlayerCreator> typesOfCreators;
+        Dictionary<object, HandlerFormFields> typesOfHandlers;
         PlayerCreator playerCreator;
         Player player;
         PlayerRepository repository = new PlayerRepository();
@@ -28,10 +30,10 @@ namespace SportsClubSerializationToXML
         {
             InitializeComponent();
             comboBoxSports.Items.AddRange(SportsRepository.ListOfSports.ToArray());
-            typesOfCreators = DictionaryTypesGenerator.GetDicOfTypes(SportsRepository.ListOfSports,
-                                PlayerCreatorsRepository.Players,"PlayerCreator");
-            typesOfHandlers = DictionaryTypesGenerator.GetDicOfTypes(SportsRepository.ListOfSports,
-                               HandlersFormFieldsRepository.ListOfHandlers, "HandlerFormFields");
+            typesOfCreators = DictionaryPlayerCreatorsGenerator.GetDicOfPlayerCreators(SportsRepository.ListOfSports,
+                                PlayerCreatorsRepository.Players);
+            typesOfHandlers = DictionaryHandlersGenerator.GetDicOfHandlers(SportsRepository.ListOfSports,
+                               HandlersFormFieldsRepository.ListOfHandlers);
             labelsForPlayers = new Label[] { labelPlayer1, labelPlayer2, labelPlayer3 };
             textBoxForPlayers = new TextBox[] { textBoxPlayer1, textBoxPlayer2, textBoxPlayer3 };
             listBoxItems.DataSource = null;
@@ -40,7 +42,7 @@ namespace SportsClubSerializationToXML
 
         private void comboBoxSports_SelectedIndexChanged(object sender, EventArgs e)
         {
-            HandlerFormFields handler = (HandlerFormFields)Activator.CreateInstance(typesOfHandlers[comboBoxSports.SelectedItem]);
+            HandlerFormFields handler = typesOfHandlers[comboBoxSports.SelectedItem];
             ChangeComponentsAccordingWithSelectedPlayer(handler);
         }
 
@@ -73,7 +75,7 @@ namespace SportsClubSerializationToXML
                     && (maskedTextBoxName.Text != "") && (textBoxPlayer1.Text != "")
                     && (textBoxPlayer2.Text != ""))
                 {
-                    playerCreator = (PlayerCreator)Activator.CreateInstance(typesOfCreators[comboBoxSports.SelectedItem]);
+                    playerCreator = typesOfCreators[comboBoxSports.SelectedItem];
                     List<string> fields = new List<string>(){ maskedTextBoxName.Text, maskedTextBoxAge.Text,
                         maskedTextBoxEarnings.Text, textBoxPlayer1.Text, textBoxPlayer2.Text, textBoxPlayer3.Text };
                     repository.Players.Add(playerCreator.FactoryMethod(fields));
@@ -118,7 +120,8 @@ namespace SportsClubSerializationToXML
             else
             {
                 player = (Player)listBoxItems.SelectedItem;
-                //HandlerFormFields handler = new Hanlers
+                var a = player.GetType().ToString();
+                //HandlerFormFields handler = 
             }
 
             buttonSave.Enabled = false;
