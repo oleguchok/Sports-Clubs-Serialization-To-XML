@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SportsClubSerializationToXML.Handlers
 {
-    public interface IHandler
+    class PokerHandlerFormFields : HandlerFormFields
     {
-        void GenerateFields(Form form); 
+        public override string[] LabelNames
+        {
+            get { return new string[] { "Rating", "Winrate" }; }
+        }
     }
 }

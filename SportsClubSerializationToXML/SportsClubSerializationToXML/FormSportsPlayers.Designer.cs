@@ -179,6 +179,7 @@
             this.labelPlayer1.Size = new System.Drawing.Size(35, 13);
             this.labelPlayer1.TabIndex = 14;
             this.labelPlayer1.Text = "label1";
+            this.labelPlayer1.Visible = false;
             // 
             // labelPlayer2
             // 
@@ -188,6 +189,7 @@
             this.labelPlayer2.Size = new System.Drawing.Size(35, 13);
             this.labelPlayer2.TabIndex = 15;
             this.labelPlayer2.Text = "label2";
+            this.labelPlayer2.Visible = false;
             // 
             // labelPlayer3
             // 
@@ -197,6 +199,7 @@
             this.labelPlayer3.Size = new System.Drawing.Size(35, 13);
             this.labelPlayer3.TabIndex = 16;
             this.labelPlayer3.Text = "label3";
+            this.labelPlayer3.Visible = false;
             // 
             // textBoxPlayer1
             // 
@@ -204,6 +207,7 @@
             this.textBoxPlayer1.Name = "textBoxPlayer1";
             this.textBoxPlayer1.Size = new System.Drawing.Size(201, 20);
             this.textBoxPlayer1.TabIndex = 17;
+            this.textBoxPlayer1.Visible = false;
             // 
             // textBoxPlayer2
             // 
@@ -211,6 +215,7 @@
             this.textBoxPlayer2.Name = "textBoxPlayer2";
             this.textBoxPlayer2.Size = new System.Drawing.Size(201, 20);
             this.textBoxPlayer2.TabIndex = 18;
+            this.textBoxPlayer2.Visible = false;
             // 
             // textBoxPlayer3
             // 
@@ -218,6 +223,7 @@
             this.textBoxPlayer3.Name = "textBoxPlayer3";
             this.textBoxPlayer3.Size = new System.Drawing.Size(201, 20);
             this.textBoxPlayer3.TabIndex = 19;
+            this.textBoxPlayer3.Visible = false;
             // 
             // buttonAdd
             // 
