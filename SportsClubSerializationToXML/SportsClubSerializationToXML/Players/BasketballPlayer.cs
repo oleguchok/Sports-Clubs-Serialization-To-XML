@@ -34,7 +34,7 @@ namespace SportsClubSerializationToXML.Sports_Clubs
 
         public override string ToString()
         {
-            return string.Format(base.ToString() + " Position: {0}; Points: {1}",
+            return string.Format(base.ToString() + "Player: Basketball; Position: {0}; Points: {1}",
                 position, Convert.ToString(points));
         }
     }

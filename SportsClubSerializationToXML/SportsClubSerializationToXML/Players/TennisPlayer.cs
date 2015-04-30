@@ -33,7 +33,7 @@ namespace SportsClubSerializationToXML.Sports_Clubs
 
         public override string ToString()
         {
-            return string.Format(base.ToString() + " Rating: {0}; Count Of Trophies: {1}",
+            return string.Format(base.ToString() + "Player: Tennis; Rating: {0}; Count Of Trophies: {1}",
                 Convert.ToString(rating),Convert.ToString(trophyCount));
         }
     }

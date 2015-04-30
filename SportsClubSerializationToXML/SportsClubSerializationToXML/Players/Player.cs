@@ -41,7 +41,7 @@ namespace SportsClubSerializationToXML.Sports_Clubs
 
         public override string ToString()
         {
-            return string.Format(base.ToString() + " Player {0}; Age: {1}; Earnings: {2}.",
+            return string.Format("Name: {0}; Age: {1}; Earnings: {2}.",
                 name, Convert.ToString(age), Convert.ToString(earnings));
         }
     }

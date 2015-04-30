@@ -42,7 +42,7 @@ namespace SportsClubSerializationToXML.Sports_Clubs
 
         public override string ToString()
         {
-            return string.Format(base.ToString() + " Goals count: {0}; Position: {1}. Penalty: {2}",
+            return string.Format(base.ToString() + "Player: Hockey; Goals count: {0}; Position: {1}. Penalty: {2}",
                 Convert.ToString(goalsCount), position, Convert.ToString(penaltyMin));
         }
     }

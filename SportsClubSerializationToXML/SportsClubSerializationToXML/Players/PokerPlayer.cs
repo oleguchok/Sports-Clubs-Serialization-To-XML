@@ -34,7 +34,7 @@ namespace SportsClubSerializationToXML.Sports_Clubs
 
         public override string ToString()
         {
-            return string.Format(base.ToString() + " Rating: {0}; Winrate: {1}%",
+            return string.Format(base.ToString() + "Player: Poker; Rating: {0}; Winrate: {1}%",
                 Convert.ToString(rating),Convert.ToString(winrate));
         }
     }

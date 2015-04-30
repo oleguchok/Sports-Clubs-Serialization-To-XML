@@ -54,6 +54,7 @@
             // listBoxItems
             // 
             this.listBoxItems.FormattingEnabled = true;
+            this.listBoxItems.HorizontalScrollbar = true;
             this.listBoxItems.Location = new System.Drawing.Point(219, 12);
             this.listBoxItems.Name = "listBoxItems";
             this.listBoxItems.Size = new System.Drawing.Size(427, 264);
@@ -76,6 +77,7 @@
             this.buttonDelete.TabIndex = 2;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonDeserialize
             // 

@@ -31,6 +31,8 @@ namespace SportsClubSerializationToXML
             types = PlayerCreatorsTypesClasses.GetAllPlayerTypes(SportsRepository.ListOfSports, PlayerCreatorsRepository.Players);
             labelsForPlayers = new Label[] { labelPlayer1, labelPlayer2, labelPlayer3 };
             textBoxForPlayers = new TextBox[] { textBoxPlayer1, textBoxPlayer2, textBoxPlayer3 };
+            listBoxItems.DataSource = null;
+            listBoxItems.DataSource = repository.Players;
         }
 
         private void comboBoxSports_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,6 +74,8 @@ namespace SportsClubSerializationToXML
                     List<string> fields = new List<string>(){ maskedTextBoxName.Text, maskedTextBoxAge.Text,
                         maskedTextBoxEarnings.Text, textBoxPlayer1.Text, textBoxPlayer2.Text, textBoxPlayer3.Text };
                     repository.Players.Add(playerCreator.FactoryMethod(fields));
+                    listBoxItems.DataSource = null;
+                    listBoxItems.DataSource = repository.Players;
                     ClearAllFields();
                 }
                 else
@@ -87,6 +91,18 @@ namespace SportsClubSerializationToXML
             textBoxPlayer1.Text = string.Empty;
             textBoxPlayer2.Text = string.Empty;
             textBoxPlayer3.Text = string.Empty;
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (listBoxItems.SelectedIndex == -1)
+                MessageBox.Show("Choose player for deleting");
+            else
+            {
+                repository.Players.RemoveAt(listBoxItems.SelectedIndex);
+                listBoxItems.DataSource = null;
+                listBoxItems.DataSource = repository.Players;
+            }
         }
     }
 }

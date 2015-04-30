@@ -9,7 +9,11 @@ namespace SportsClubSerializationToXML.Repository
 {
     class PlayerRepository
     {
-        private List<Player> players = new List<Player>();
+        private List<Player> players = new List<Player>() 
+        {
+            new FootballPlayer() 
+            { Age = 32, Position = "Attacker", GoalsCount = 12, Earnings = 1000, Name = "Lukas Podolski"}
+        };
         public List<Player> Players 
         { 
             get { return players; }
