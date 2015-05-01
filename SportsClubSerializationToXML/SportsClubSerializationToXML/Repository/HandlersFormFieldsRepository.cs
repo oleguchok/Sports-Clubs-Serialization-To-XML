@@ -9,28 +9,19 @@ namespace SportsClubSerializationToXML.Repository
 {
     public static class HandlersFormFieldsRepository
     {
-        private static List<HandlerFormFields> listOfHandlers;
+        private static List<HandlerFormFields> listOfHandlers = new List<HandlerFormFields>()
+        {
+            new FootballHandlerFormFields(),
+            new HockeyHandlerFormFields(),
+            new BasketballHandlerFormFields(),
+            new SnookerHandlerFormFields(),
+            new TennisHandlerFormFields(),
+            new PokerHandlerFormFields()
+        };
 
         public static List<HandlerFormFields> ListOfHandlers
         {
-            get { FormListOfHandlers(); return listOfHandlers; }
-        }
-        
-        private static void FormListOfHandlers()
-        {
-            listOfHandlers = new List<HandlerFormFields>();
-            HandlerFormFields handler;
-            AddHandlerFormFieldsInList(handler = new FootballHandlerFormFields());
-            AddHandlerFormFieldsInList(handler = new HockeyHandlerFormFields());
-            AddHandlerFormFieldsInList(handler = new BasketballHandlerFormFields());
-            AddHandlerFormFieldsInList(handler = new SnookerHandlerFormFields());
-            AddHandlerFormFieldsInList(handler = new TennisHandlerFormFields());
-            AddHandlerFormFieldsInList(handler = new PokerHandlerFormFields());
-        }
-
-        private static void AddHandlerFormFieldsInList(HandlerFormFields handler)
-        {
-            listOfHandlers.Add(handler);
+            get { return listOfHandlers; }
         }
     }
 }

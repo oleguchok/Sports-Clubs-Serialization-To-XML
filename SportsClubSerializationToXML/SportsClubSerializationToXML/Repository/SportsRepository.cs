@@ -19,20 +19,5 @@ namespace SportsClubSerializationToXML
         {
             get { return list; }
         }
-
-        public static void FormListOfSports()
-        {
-            /*AddSportInList("Football");
-            AddSportInList("Hockey");
-            AddSportInList("Basketball");
-            AddSportInList("Snooker");
-            AddSportInList("Tennis");
-            AddSportInList("Poker");*/
-        }
-
-        public static void AddSportInList(string sport)
-        {
-            list.Add(sport);
-        }
     }
 }

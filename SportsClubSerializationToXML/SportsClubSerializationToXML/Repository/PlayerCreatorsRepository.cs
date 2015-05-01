@@ -10,24 +10,16 @@ namespace SportsClubSerializationToXML.Repository
 {
     public static class PlayerCreatorsRepository
     {
-        private static List<PlayerCreator> players;
-        public static List<PlayerCreator> Players { get { FormListOfPlayers(); return players; } }
-
-        private static void FormListOfPlayers()
+        private static List<PlayerCreator> players = new List<PlayerCreator>()
         {
-            players = new List<PlayerCreator>();
-            PlayerCreator creator;
-            AddPlayerType(creator = new FootballPlayerCreator());
-            AddPlayerType(creator = new HockeyPlayerCreator());
-            AddPlayerType(creator = new BasketballPlayerCreator());
-            AddPlayerType(creator = new SnookerPlayerCreator());
-            AddPlayerType(creator = new TennisPlayerCreator());
-            AddPlayerType(creator = new PokerPlayerCreator());
-        }
-
-        private static void AddPlayerType(PlayerCreator player)
-        {
-            players.Add(player);
-        }
+            new FootballPlayerCreator(),
+            new HockeyPlayerCreator(),
+            new BasketballPlayerCreator(),
+            new SnookerPlayerCreator(),
+            new TennisPlayerCreator(),
+            new PokerPlayerCreator()
+        };
+        public static List<PlayerCreator> Players 
+        { get { return players; } }
     }
 }

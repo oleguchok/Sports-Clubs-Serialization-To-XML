@@ -1,9 +1,7 @@
 ﻿using PluginContracts;
 using SportsClubSerializationToXML.Creators;
 using SportsClubSerializationToXML.Creators.EditingCreators;
-using SportsClubSerializationToXML.Generators;
 using SportsClubSerializationToXML.Handlers;
-using SportsClubSerializationToXML.Players;
 using SportsClubSerializationToXML.Repository;
 using SportsClubSerializationToXML.Sports_Clubs;
 using System;
@@ -22,8 +20,6 @@ namespace SportsClubSerializationToXML
 {
     public partial class FormSportsPlayers : Form
     {
-        Dictionary<object, PlayerCreator> typesOfCreators;
-        Dictionary<object, HandlerFormFields> typesOfHandlers;
         PlayerCreator playerCreator;
         PlayerEditingCreator editingCreator;
         Player player;
@@ -36,10 +32,6 @@ namespace SportsClubSerializationToXML
         {
             InitializeComponent();
             comboBoxSports.Items.AddRange(SportsRepository.ListOfSports.ToArray());
-            typesOfCreators = DictionaryPlayerCreatorsGenerator.GetDicOfPlayerCreators(SportsRepository.ListOfSports,
-                                PlayerCreatorsRepository.Players);
-            typesOfHandlers = DictionaryHandlersGenerator.GetDicOfHandlers(SportsRepository.ListOfSports,
-                               HandlersFormFieldsRepository.ListOfHandlers);
             labelsForPlayers = new Label[] { labelPlayer1, labelPlayer2, labelPlayer3 };
             textBoxForPlayers = new TextBox[] { textBoxPlayer1, textBoxPlayer2, textBoxPlayer3 };
             listBoxItems.DataSource = null;
@@ -48,7 +40,7 @@ namespace SportsClubSerializationToXML
 
         private void comboBoxSports_SelectedIndexChanged(object sender, EventArgs e)
         {
-            HandlerFormFields handler = typesOfHandlers[comboBoxSports.SelectedItem];
+            HandlerFormFields handler = HandlersFormFieldsRepository.ListOfHandlers[comboBoxSports.SelectedIndex];
             ChangeComponentsAccordingWithSelectedPlayer(handler);
         }
 
@@ -81,7 +73,7 @@ namespace SportsClubSerializationToXML
                     && (maskedTextBoxName.Text != "") && (textBoxPlayer1.Text != "")
                     && (textBoxPlayer2.Text != ""))
                 {
-                    playerCreator = typesOfCreators[comboBoxSports.SelectedItem];
+                    playerCreator = PlayerCreatorsRepository.Players[comboBoxSports.SelectedIndex];
                     List<string> fields = new List<string>(){ maskedTextBoxName.Text, maskedTextBoxAge.Text,
                         maskedTextBoxEarnings.Text, textBoxPlayer1.Text, textBoxPlayer2.Text, textBoxPlayer3.Text };
                     repository.Players.Add(playerCreator.FactoryMethod(fields));
@@ -130,8 +122,8 @@ namespace SportsClubSerializationToXML
                 int index = GetIndexOfHandler(player);
                 comboBoxSports.SelectedIndex = index;
                 editingCreator = EditingCreatorsRepository.ListOfEditingCreators[comboBoxSports.SelectedIndex];
-                editingCreator.FactoryMethod(player, fields);                
-                HandlerFormFields handler = typesOfHandlers[comboBoxSports.SelectedItem];
+                editingCreator.FactoryMethod(player, fields);
+                HandlerFormFields handler = HandlersFormFieldsRepository.ListOfHandlers[comboBoxSports.SelectedIndex];
                 ChangeComponentsAccordingWithSelectedPlayer(handler);
                 FillFields(fields);
                 repository.Players.RemoveAt(listBoxItems.SelectedIndex);
@@ -166,7 +158,7 @@ namespace SportsClubSerializationToXML
                     && (maskedTextBoxName.Text != "") && (textBoxPlayer1.Text != "")
                     && (textBoxPlayer2.Text != ""))
             {
-                playerCreator = typesOfCreators[comboBoxSports.SelectedItem];
+                playerCreator = PlayerCreatorsRepository.Players[comboBoxSports.SelectedIndex];
                 List<string> fields = new List<string>(){ maskedTextBoxName.Text, maskedTextBoxAge.Text,
                         maskedTextBoxEarnings.Text, textBoxPlayer1.Text, textBoxPlayer2.Text, textBoxPlayer3.Text };
                 repository.Players.Insert(selectedListBoxIndex, playerCreator.FactoryMethod(fields));

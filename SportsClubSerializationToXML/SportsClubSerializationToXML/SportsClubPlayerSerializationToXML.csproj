@@ -65,7 +65,6 @@
     <Compile Include="FormSportsPlayers.Designer.cs">
       <DependentUpon>FormSportsPlayers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generators\DictionaryPlayerCreatorsGenerator.cs" />
     <Compile Include="Handlers\BasketballHandlerFormFields.cs" />
     <Compile Include="Handlers\FootballHandlerFormFields.cs" />
     <Compile Include="Handlers\HandlerFormFields.cs" />
@@ -74,7 +73,6 @@
     <Compile Include="Handlers\PokerHandlerFormFields.cs" />
     <Compile Include="Handlers\SnookerHandlerFormFields.cs" />
     <Compile Include="Handlers\TennisHandlerFormFields.cs" />
-    <Compile Include="Generators\DictionaryHandlersGenerator.cs" />
     <Compile Include="PluginsController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
