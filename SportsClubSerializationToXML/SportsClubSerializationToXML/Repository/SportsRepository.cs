@@ -10,25 +10,27 @@ namespace SportsClubSerializationToXML
 {
     public static class SportsRepository
     {
-        private static List<object> list;
+        private static List<object> list = new List<object>()
+        {
+            "Football", "Hockey", "Basketball", "Snooker", "Tennis", "Poker"
+        };
 
         public static List<object> ListOfSports
         {
-            get { FormListOfSports(); return list; }
+            get { return list; }
         }
 
-        private static void FormListOfSports()
+        public static void FormListOfSports()
         {
-            list = new List<object>();
-            AddSportInList("Football");
+            /*AddSportInList("Football");
             AddSportInList("Hockey");
             AddSportInList("Basketball");
             AddSportInList("Snooker");
             AddSportInList("Tennis");
-            AddSportInList("Poker");
+            AddSportInList("Poker");*/
         }
 
-        private static void AddSportInList(string sport)
+        public static void AddSportInList(string sport)
         {
             list.Add(sport);
         }

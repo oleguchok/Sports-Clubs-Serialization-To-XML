@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Reflection.Context" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +75,7 @@
     <Compile Include="Handlers\SnookerHandlerFormFields.cs" />
     <Compile Include="Handlers\TennisHandlerFormFields.cs" />
     <Compile Include="Generators\DictionaryHandlersGenerator.cs" />
+    <Compile Include="PluginsController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Players\BasketballPlayer.cs" />
@@ -113,7 +115,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\PluginContracts\PluginContracts\PluginContracts.csproj">
+      <Project>{d254d3d4-df72-4a60-b65a-1786dde6a5b4}</Project>
+      <Name>PluginContracts</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

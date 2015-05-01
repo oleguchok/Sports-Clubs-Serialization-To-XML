@@ -1,4 +1,5 @@
-﻿using SportsClubSerializationToXML.Creators;
+﻿using PluginContracts;
+using SportsClubSerializationToXML.Creators;
 using SportsClubSerializationToXML.Creators.EditingCreators;
 using SportsClubSerializationToXML.Generators;
 using SportsClubSerializationToXML.Handlers;
@@ -197,6 +198,20 @@ namespace SportsClubSerializationToXML
                 repository.Players.AddRange(newPlayers);
                 listBoxItems.DataSource = null;
                 listBoxItems.DataSource = repository.Players;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PluginsController controller = new PluginsController();
+            controller.FindPlugins(@"d:\GitHub\Sports-Clubs-Serialization-To-XML\Plugin\Plugin\bin\Debug");
+            ICollection<INewPlayerPlugin> plugins = controller.LoadAssembleys();
+            //_Plugins = new Dictionary<string, IPlugin>();
+            foreach (var item in plugins)
+            {
+                SportsRepository.ListOfSports.Add(item.SportName);
+                comboBoxSports.Items.Clear();
+                comboBoxSports.Items.AddRange(SportsRepository.ListOfSports.ToArray());
             }
         }
     }
