@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="F1HandlerFormFields.cs" />
     <Compile Include="F1Player.cs" />
     <Compile Include="F1Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

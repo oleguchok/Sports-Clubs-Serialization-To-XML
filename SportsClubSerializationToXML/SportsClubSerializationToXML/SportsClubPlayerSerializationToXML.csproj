@@ -67,8 +67,6 @@
     </Compile>
     <Compile Include="Handlers\BasketballHandlerFormFields.cs" />
     <Compile Include="Handlers\FootballHandlerFormFields.cs" />
-    <Compile Include="Handlers\HandlerFormFields.cs" />
-    <Compile Include="Handlers\HandlersFormFieldsTypeClasses.cs" />
     <Compile Include="Handlers\HockeyHandlerFormFields.cs" />
     <Compile Include="Handlers\PokerHandlerFormFields.cs" />
     <Compile Include="Handlers\SnookerHandlerFormFields.cs" />

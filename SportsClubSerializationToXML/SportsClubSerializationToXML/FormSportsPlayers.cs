@@ -204,6 +204,7 @@ namespace SportsClubSerializationToXML
                 SportsRepository.ListOfSports.Add(item.SportName);
                 comboBoxSports.Items.Clear();
                 comboBoxSports.Items.AddRange(SportsRepository.ListOfSports.ToArray());
+                HandlersFormFieldsRepository.ListOfHandlers.Add(item.Handler);
             }
         }
     }

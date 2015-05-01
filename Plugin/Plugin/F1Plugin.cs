@@ -1,4 +1,5 @@
 ﻿using PluginContracts;
+using SportsClubSerializationToXML.Handlers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,14 @@ namespace Plugin
             get { return "F1"; }
         }
 
-
-
         public SportsClubSerializationToXML.Sports_Clubs.Player Player
         {
             get { return new F1Player(); }
+        }
+        
+        public HandlerFormFields Handler
+        {
+            get { return new F1HandlerFormFields(); }
         }
     }
 }

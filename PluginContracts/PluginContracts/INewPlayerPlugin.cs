@@ -1,4 +1,5 @@
-﻿using SportsClubSerializationToXML.Sports_Clubs;
+﻿using SportsClubSerializationToXML.Handlers;
+using SportsClubSerializationToXML.Sports_Clubs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace PluginContracts
     {
         string SportName { get; }
         Player Player { get; }
+        HandlerFormFields Handler { get; }
     }
 }
