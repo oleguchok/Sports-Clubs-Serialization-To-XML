@@ -89,6 +89,7 @@
             this.buttonDeserialize.TabIndex = 3;
             this.buttonDeserialize.Text = "Deserialize";
             this.buttonDeserialize.UseVisualStyleBackColor = true;
+            this.buttonDeserialize.Click += new System.EventHandler(this.buttonDeserialize_Click);
             // 
             // buttonSerialize
             // 

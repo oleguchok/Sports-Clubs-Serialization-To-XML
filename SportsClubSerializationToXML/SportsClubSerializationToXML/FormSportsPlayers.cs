@@ -186,5 +186,17 @@ namespace SportsClubSerializationToXML
             serializer.Serialize(writer, repository.Players);
             writer.Close();
         }
+
+        private void buttonDeserialize_Click(object sender, EventArgs e)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+            using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
+            {
+                List<Player> newPlayers = (List<Player>)serializer.Deserialize(fs);
+                repository.Players.AddRange(newPlayers);
+                listBoxItems.DataSource = null;
+                listBoxItems.DataSource = repository.Players;
+            }
+        }
     }
 }
