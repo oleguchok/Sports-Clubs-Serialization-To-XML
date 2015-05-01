@@ -1,4 +1,5 @@
 ﻿using SportsClubSerializationToXML.Creators;
+using SportsClubSerializationToXML.Creators.EditingCreators;
 using SportsClubSerializationToXML.Generators;
 using SportsClubSerializationToXML.Handlers;
 using SportsClubSerializationToXML.Players;
@@ -21,10 +22,12 @@ namespace SportsClubSerializationToXML
         Dictionary<object, PlayerCreator> typesOfCreators;
         Dictionary<object, HandlerFormFields> typesOfHandlers;
         PlayerCreator playerCreator;
+        PlayerEditingCreator editingCreator;
         Player player;
         PlayerRepository repository = new PlayerRepository();
         private Label[] labelsForPlayers;
         private TextBox[] textBoxForPlayers;
+        int selectedListBoxIndex;
 
         public FormSportsPlayers()
         {
@@ -119,13 +122,59 @@ namespace SportsClubSerializationToXML
                 MessageBox.Show("Choose player for editing");
             else
             {
+                List<string> fields = new List<string>();
                 player = (Player)listBoxItems.SelectedItem;
-                var a = player.GetType().ToString();
-                //HandlerFormFields handler = 
+                int index = GetIndexOfHandler(player);
+                comboBoxSports.SelectedIndex = index;
+                editingCreator = EditingCreatorsRepository.ListOfEditingCreators[comboBoxSports.SelectedIndex];
+                editingCreator.FactoryMethod(player, fields);                
+                HandlerFormFields handler = typesOfHandlers[comboBoxSports.SelectedItem];
+                ChangeComponentsAccordingWithSelectedPlayer(handler);
+                FillFields(fields);
+                repository.Players.RemoveAt(listBoxItems.SelectedIndex);
+                selectedListBoxIndex = listBoxItems.SelectedIndex;
             }
 
-            buttonSave.Enabled = false;
-            buttonAdd.Enabled = true;
+            
+        }
+
+        private int GetIndexOfHandler(Player player)
+        {
+            for (int i = 0; i < SportsRepository.ListOfSports.Count; i++)
+                if (player.ToString().Contains(".Player: " + SportsRepository.ListOfSports[i]))
+                    return i;
+            return -1;
+        }
+
+        private void FillFields(List<string> fields)
+        {
+            maskedTextBoxName.Text = fields[0];
+            maskedTextBoxAge.Text = fields[1];
+            maskedTextBoxEarnings.Text = fields[2];
+            for (int i = 3; i < fields.Count; i++)
+            {
+                textBoxForPlayers[i - 3].Text = fields[i];
+            }
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if ((maskedTextBoxAge.Text != "") && (maskedTextBoxEarnings.Text != "")
+                    && (maskedTextBoxName.Text != "") && (textBoxPlayer1.Text != "")
+                    && (textBoxPlayer2.Text != ""))
+            {
+                playerCreator = typesOfCreators[comboBoxSports.SelectedItem];
+                List<string> fields = new List<string>(){ maskedTextBoxName.Text, maskedTextBoxAge.Text,
+                        maskedTextBoxEarnings.Text, textBoxPlayer1.Text, textBoxPlayer2.Text, textBoxPlayer3.Text };
+                repository.Players.Insert(selectedListBoxIndex, playerCreator.FactoryMethod(fields));
+                listBoxItems.DataSource = null;
+                listBoxItems.DataSource = repository.Players;
+                ClearAllFields();
+                buttonSave.Enabled = false;
+                buttonAdd.Enabled = true;
+            }
+            else
+                MessageBox.Show("Fill the fields!");
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SportsClubSerializationToXML
 {
     public static class SportsRepository
     {
-        private static List<object> list = new List<object>();
+        private static List<object> list;
 
         public static List<object> ListOfSports
         {
@@ -19,6 +19,7 @@ namespace SportsClubSerializationToXML
 
         private static void FormListOfSports()
         {
+            list = new List<object>();
             AddSportInList("Football");
             AddSportInList("Hockey");
             AddSportInList("Basketball");

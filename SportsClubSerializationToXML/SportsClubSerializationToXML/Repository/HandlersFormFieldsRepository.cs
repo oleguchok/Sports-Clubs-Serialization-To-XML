@@ -9,7 +9,7 @@ namespace SportsClubSerializationToXML.Repository
 {
     public static class HandlersFormFieldsRepository
     {
-        private static List<HandlerFormFields> listOfHandlers = new List<HandlerFormFields>();
+        private static List<HandlerFormFields> listOfHandlers;
 
         public static List<HandlerFormFields> ListOfHandlers
         {
@@ -18,6 +18,7 @@ namespace SportsClubSerializationToXML.Repository
         
         private static void FormListOfHandlers()
         {
+            listOfHandlers = new List<HandlerFormFields>();
             HandlerFormFields handler;
             AddHandlerFormFieldsInList(handler = new FootballHandlerFormFields());
             AddHandlerFormFieldsInList(handler = new HockeyHandlerFormFields());

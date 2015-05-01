@@ -251,6 +251,7 @@
             this.buttonSave.TabIndex = 24;
             this.buttonSave.Text = "Save Changes";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // FormSportsPlayers
             // 

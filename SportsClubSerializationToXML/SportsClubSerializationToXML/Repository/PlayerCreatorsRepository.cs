@@ -10,11 +10,12 @@ namespace SportsClubSerializationToXML.Repository
 {
     public static class PlayerCreatorsRepository
     {
-        private static List<PlayerCreator> players = new List<PlayerCreator>();
+        private static List<PlayerCreator> players;
         public static List<PlayerCreator> Players { get { FormListOfPlayers(); return players; } }
 
         private static void FormListOfPlayers()
         {
+            players = new List<PlayerCreator>();
             PlayerCreator creator;
             AddPlayerType(creator = new FootballPlayerCreator());
             AddPlayerType(creator = new HockeyPlayerCreator());
