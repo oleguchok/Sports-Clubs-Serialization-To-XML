@@ -13,7 +13,7 @@ namespace PluginContracts
     public interface INewPlayerPlugin
     {
         string SportName { get; }
-        Player Player { get; }
+        Type TypeOfPlayer { get; }
         HandlerFormFields Handler { get; }
         PlayerCreator PlayerCreator { get; }
         PlayerEditingCreator PlayerEditingCreator { get; }

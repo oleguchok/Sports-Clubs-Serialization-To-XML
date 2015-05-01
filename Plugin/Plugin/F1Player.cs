@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Plugin
 {
-    class F1Player : Player
+    [Serializable()]
+    public class F1Player : Player
     {
         private int granpriWins;
         private string team;

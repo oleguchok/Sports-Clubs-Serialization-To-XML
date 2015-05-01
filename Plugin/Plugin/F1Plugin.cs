@@ -15,9 +15,9 @@ namespace Plugin
             get { return "F1"; }
         }
 
-        public SportsClubSerializationToXML.Sports_Clubs.Player Player
+        public Type TypeOfPlayer
         {
-            get { return new F1Player(); }
+            get { return typeof(F1Player); }
         }
         
         public HandlerFormFields Handler

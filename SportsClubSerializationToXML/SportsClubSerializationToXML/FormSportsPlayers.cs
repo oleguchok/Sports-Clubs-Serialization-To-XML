@@ -128,9 +128,7 @@ namespace SportsClubSerializationToXML
                 FillFields(fields);
                 repository.Players.RemoveAt(listBoxItems.SelectedIndex);
                 selectedListBoxIndex = listBoxItems.SelectedIndex;
-            }
-
-            
+            }            
         }
 
         private int GetIndexOfHandler(Player player)
@@ -174,7 +172,8 @@ namespace SportsClubSerializationToXML
 
         private void buttonSerialize_Click(object sender, EventArgs e)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>),
+                PlayerTypesRepository.ListOfPlayerTypes.ToArray());
             StreamWriter writer = new StreamWriter("File.xml");
             serializer.Serialize(writer, repository.Players);
             writer.Close();
@@ -183,7 +182,8 @@ namespace SportsClubSerializationToXML
 
         private void buttonDeserialize_Click(object sender, EventArgs e)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>),
+                PlayerTypesRepository.ListOfPlayerTypes.ToArray());
             using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
             {
                 List<Player> newPlayers = (List<Player>)serializer.Deserialize(fs);
@@ -207,6 +207,7 @@ namespace SportsClubSerializationToXML
                 HandlersFormFieldsRepository.ListOfHandlers.Add(item.Handler);
                 PlayerCreatorsRepository.Players.Add(item.PlayerCreator);
                 EditingCreatorsRepository.ListOfEditingCreators.Add(item.PlayerEditingCreator);
+                PlayerTypesRepository.ListOfPlayerTypes.Add(item.TypeOfPlayer);
             }
         }
     }

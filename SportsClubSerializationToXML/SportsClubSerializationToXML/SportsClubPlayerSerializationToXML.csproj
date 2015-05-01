@@ -82,6 +82,7 @@
     <Compile Include="Repository\HandlersFormFieldsRepository.cs" />
     <Compile Include="Repository\PlayerCreatorsRepository.cs" />
     <Compile Include="Repository\PlayerRepository.cs" />
+    <Compile Include="Repository\PlayerTypesRepository.cs" />
     <Compile Include="Repository\SportsRepository.cs" />
     <EmbeddedResource Include="FormSportsPlayers.resx">
       <DependentUpon>FormSportsPlayers.cs</DependentUpon>
