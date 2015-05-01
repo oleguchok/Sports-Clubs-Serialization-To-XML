@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="HandlerFormFields.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -55,7 +55,6 @@
     <Compile Include="Creators\EditingCreators\TennisEditingCreator.cs" />
     <Compile Include="Creators\FootballPlayerCreator.cs" />
     <Compile Include="Creators\HockeyPlayerCreator.cs" />
-    <Compile Include="Creators\PlayerCreator.cs" />
     <Compile Include="Creators\PokerPlayerCreator.cs" />
     <Compile Include="Creators\SnookerPlayerCreator.cs" />
     <Compile Include="Creators\TennisPlayerCreator.cs" />

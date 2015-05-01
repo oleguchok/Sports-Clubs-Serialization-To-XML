@@ -24,5 +24,10 @@ namespace Plugin
         {
             get { return new F1HandlerFormFields(); }
         }
+
+        public SportsClubSerializationToXML.Creators.PlayerCreator PlayerCreator
+        {
+            get { return new F1PlayerCreator(); }
+        }
     }
 }
