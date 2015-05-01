@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SportsClubSerializationToXML.Sports_Clubs
 {
-    class SnookerPlayer : Player
+    public class SnookerPlayer : Player
     {
         private int rating;
         private int senchuryCount;

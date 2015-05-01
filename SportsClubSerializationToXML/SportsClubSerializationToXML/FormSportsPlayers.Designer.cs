@@ -98,6 +98,7 @@
             this.buttonSerialize.TabIndex = 4;
             this.buttonSerialize.Text = "Serialize";
             this.buttonSerialize.UseVisualStyleBackColor = true;
+            this.buttonSerialize.Click += new System.EventHandler(this.buttonSerialize_Click);
             // 
             // labelHeader
             // 

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace SportsClubSerializationToXML.Sports_Clubs
 {
-    class FootballPlayer : Player
+    [Serializable]
+    public class FootballPlayer : Player
     {
         /*private enum Positions
         {
@@ -15,8 +17,8 @@ namespace SportsClubSerializationToXML.Sports_Clubs
             Midfielder,
             Forward
         }*/
-
         private int goalsCount;
+        
         private string position;
 
         public int GoalsCount

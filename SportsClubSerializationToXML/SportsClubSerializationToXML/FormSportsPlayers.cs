@@ -10,10 +10,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace SportsClubSerializationToXML
 {
@@ -175,6 +177,14 @@ namespace SportsClubSerializationToXML
             }
             else
                 MessageBox.Show("Fill the fields!");
+        }
+
+        private void buttonSerialize_Click(object sender, EventArgs e)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+            StreamWriter writer = new StreamWriter("File.xml");
+            serializer.Serialize(writer, repository.Players);
+            writer.Close();
         }
     }
 }
