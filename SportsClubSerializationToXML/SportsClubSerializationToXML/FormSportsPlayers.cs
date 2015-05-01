@@ -185,6 +185,7 @@ namespace SportsClubSerializationToXML
             StreamWriter writer = new StreamWriter("File.xml");
             serializer.Serialize(writer, repository.Players);
             writer.Close();
+            System.Diagnostics.Process.Start("File.xml");
         }
 
         private void buttonDeserialize_Click(object sender, EventArgs e)
