@@ -14,5 +14,11 @@ namespace Plugin
             get { return "F1"; }
         }
 
+
+
+        public SportsClubSerializationToXML.Sports_Clubs.Player Player
+        {
+            get { return new F1Player(); }
+        }
     }
 }

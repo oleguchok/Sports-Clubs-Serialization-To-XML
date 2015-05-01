@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D254D3D4-DF72-4A60-B65A-1786DDE6A5B4}</ProjectGuid>
+    <ProjectGuid>{164EBD8C-111F-4DC9-BF7A-9D896EB79543}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PluginContracts</RootNamespace>
-    <AssemblyName>PluginContracts</AssemblyName>
+    <RootNamespace>PlayerContracts</RootNamespace>
+    <AssemblyName>PlayerContracts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,14 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="INewPlayerPlugin.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\PlayerContracts\PlayerContracts\PlayerContracts.csproj">
-      <Project>{164ebd8c-111f-4dc9-bf7a-9d896eb79543}</Project>
-      <Name>PlayerContracts</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

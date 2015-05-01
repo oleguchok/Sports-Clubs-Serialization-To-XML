@@ -8,12 +8,6 @@ using System.Xml.Serialization;
 namespace SportsClubSerializationToXML.Sports_Clubs
 {
     [Serializable()]
-    [XmlInclude(typeof(FootballPlayer)),
-    XmlInclude(typeof(HockeyPlayer)),
-    XmlInclude(typeof(BasketballPlayer)),
-    XmlInclude(typeof(SnookerPlayer)),
-    XmlInclude(typeof(TennisPlayer)),
-    XmlInclude(typeof(PokerPlayer))]
     public abstract class Player
     {
         protected string name;

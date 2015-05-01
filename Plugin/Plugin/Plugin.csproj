@@ -39,10 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="F1Player.cs" />
     <Compile Include="F1Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\PlayerContracts\PlayerContracts\PlayerContracts.csproj">
+      <Project>{164ebd8c-111f-4dc9-bf7a-9d896eb79543}</Project>
+      <Name>PlayerContracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\PluginContracts\PluginContracts\PluginContracts.csproj">
       <Project>{d254d3d4-df72-4a60-b65a-1786dde6a5b4}</Project>
       <Name>PluginContracts</Name>
