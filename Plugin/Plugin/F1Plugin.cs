@@ -29,5 +29,11 @@ namespace Plugin
         {
             get { return new F1PlayerCreator(); }
         }
+
+
+        public SportsClubSerializationToXML.Creators.EditingCreators.PlayerEditingCreator PlayerEditingCreator
+        {
+            get { return new F1EditingCreator(); }
+        }
     }
 }

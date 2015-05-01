@@ -1,4 +1,5 @@
 ﻿using SportsClubSerializationToXML.Creators;
+using SportsClubSerializationToXML.Creators.EditingCreators;
 using SportsClubSerializationToXML.Handlers;
 using SportsClubSerializationToXML.Sports_Clubs;
 using System;
@@ -15,5 +16,6 @@ namespace PluginContracts
         Player Player { get; }
         HandlerFormFields Handler { get; }
         PlayerCreator PlayerCreator { get; }
+        PlayerEditingCreator PlayerEditingCreator { get; }
     }
 }

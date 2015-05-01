@@ -49,7 +49,6 @@
     <Compile Include="Creators\EditingCreators\BasketballEditingCreator.cs" />
     <Compile Include="Creators\EditingCreators\FootballEditingCreator.cs" />
     <Compile Include="Creators\EditingCreators\HockeyEditingCreator.cs" />
-    <Compile Include="Creators\EditingCreators\PlayerEditingCreator.cs" />
     <Compile Include="Creators\EditingCreators\PokerEditingCreator.cs" />
     <Compile Include="Creators\EditingCreators\SnookerEditingCreator.cs" />
     <Compile Include="Creators\EditingCreators\TennisEditingCreator.cs" />
