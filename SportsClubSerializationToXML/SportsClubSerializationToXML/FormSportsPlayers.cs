@@ -201,7 +201,6 @@ namespace SportsClubSerializationToXML
                 string file = openFileDialog1.FileName;
 
                 PluginsController controller = new PluginsController();
-                //controller.FindPlugins(@"d:\GitHub\Sports-Clubs-Serialization-To-XML\Plugin\Plugin\bin\Debug");
                 controller.FindPlugins(file);
                 ICollection<INewPlayerPlugin> plugins = controller.LoadAssembleys();
                 

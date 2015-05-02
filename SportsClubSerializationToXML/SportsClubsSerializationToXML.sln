@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin", "..\Plugin\Plugin\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerContracts", "..\PlayerContracts\PlayerContracts\PlayerContracts.csproj", "{164EBD8C-111F-4DC9-BF7A-9D896EB79543}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonSerializationPlugin", "..\JsonSerializationPlugin\JsonSerializationPlugin\JsonSerializationPlugin.csproj", "{8A6FEE35-3DA7-4132-B1CF-3E1F9A4246E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{164EBD8C-111F-4DC9-BF7A-9D896EB79543}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{164EBD8C-111F-4DC9-BF7A-9D896EB79543}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{164EBD8C-111F-4DC9-BF7A-9D896EB79543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A6FEE35-3DA7-4132-B1CF-3E1F9A4246E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A6FEE35-3DA7-4132-B1CF-3E1F9A4246E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A6FEE35-3DA7-4132-B1CF-3E1F9A4246E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A6FEE35-3DA7-4132-B1CF-3E1F9A4246E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -52,6 +52,7 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonPlugin = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.checkBoxJson = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // listBoxItems
@@ -271,11 +272,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // checkBoxJson
+            // 
+            this.checkBoxJson.AutoSize = true;
+            this.checkBoxJson.Location = new System.Drawing.Point(233, 329);
+            this.checkBoxJson.Name = "checkBoxJson";
+            this.checkBoxJson.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxJson.TabIndex = 26;
+            this.checkBoxJson.Text = "Use JSON";
+            this.checkBoxJson.UseVisualStyleBackColor = true;
+            // 
             // FormSportsPlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 349);
+            this.ClientSize = new System.Drawing.Size(661, 353);
+            this.Controls.Add(this.checkBoxJson);
             this.Controls.Add(this.buttonPlugin);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.maskedTextBoxEarnings);
@@ -332,6 +344,7 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonPlugin;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.CheckBox checkBoxJson;
 
     }
 }
