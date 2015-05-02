@@ -11,14 +11,11 @@ namespace SportsClubSerializationToXML
 {
     class PluginsController
     {
-        string[] dllFileNames;
+        string[] dllFileNames = new string[1];
 
         public void FindPlugins(string path)
         {
-            if (Directory.Exists(path))
-            {
-                dllFileNames = Directory.GetFiles(path, "*.dll");
-            }
+            dllFileNames[0] = path;
         }
 
         public ICollection<INewPlayerPlugin> LoadAssembleys()

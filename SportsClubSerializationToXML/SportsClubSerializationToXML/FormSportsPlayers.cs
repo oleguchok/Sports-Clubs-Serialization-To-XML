@@ -193,21 +193,28 @@ namespace SportsClubSerializationToXML
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonPlugin_Click(object sender, EventArgs e)
         {
-            PluginsController controller = new PluginsController();
-            controller.FindPlugins(@"d:\GitHub\Sports-Clubs-Serialization-To-XML\Plugin\Plugin\bin\Debug");
-            ICollection<INewPlayerPlugin> plugins = controller.LoadAssembleys();
-            //_Plugins = new Dictionary<string, IPlugin>();
-            foreach (var item in plugins)
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
             {
-                SportsRepository.ListOfSports.Add(item.SportName);
-                comboBoxSports.Items.Clear();
-                comboBoxSports.Items.AddRange(SportsRepository.ListOfSports.ToArray());
-                HandlersFormFieldsRepository.ListOfHandlers.Add(item.Handler);
-                PlayerCreatorsRepository.Players.Add(item.PlayerCreator);
-                EditingCreatorsRepository.ListOfEditingCreators.Add(item.PlayerEditingCreator);
-                PlayerTypesRepository.ListOfPlayerTypes.Add(item.TypeOfPlayer);
+                string file = openFileDialog1.FileName;
+
+                PluginsController controller = new PluginsController();
+                //controller.FindPlugins(@"d:\GitHub\Sports-Clubs-Serialization-To-XML\Plugin\Plugin\bin\Debug");
+                controller.FindPlugins(file);
+                ICollection<INewPlayerPlugin> plugins = controller.LoadAssembleys();
+                
+                foreach (var item in plugins)
+                {
+                    SportsRepository.ListOfSports.Add(item.SportName);
+                    comboBoxSports.Items.Clear();
+                    comboBoxSports.Items.AddRange(SportsRepository.ListOfSports.ToArray());
+                    HandlersFormFieldsRepository.ListOfHandlers.Add(item.Handler);
+                    PlayerCreatorsRepository.Players.Add(item.PlayerCreator);
+                    EditingCreatorsRepository.ListOfEditingCreators.Add(item.PlayerEditingCreator);
+                    PlayerTypesRepository.ListOfPlayerTypes.Add(item.TypeOfPlayer);
+                }
             }
         }
     }
