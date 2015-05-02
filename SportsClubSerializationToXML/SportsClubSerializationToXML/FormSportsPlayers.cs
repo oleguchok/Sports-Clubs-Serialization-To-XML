@@ -1,4 +1,5 @@
-﻿using PluginContracts;
+﻿using Newtonsoft.Json;
+using PluginContracts;
 using SportsClubSerializationToXML.Creators;
 using SportsClubSerializationToXML.Creators.EditingCreators;
 using SportsClubSerializationToXML.Handlers;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace SportsClubSerializationToXML
@@ -172,26 +174,71 @@ namespace SportsClubSerializationToXML
 
         private void buttonSerialize_Click(object sender, EventArgs e)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>),
-                PlayerTypesRepository.ListOfPlayerTypes.ToArray());
-            StreamWriter writer = new StreamWriter("File.xml");
+            if (!checkBoxJson.Checked)
+            {
+                SerialaizeToXml(typeof(List<Player>),
+                    PlayerTypesRepository.ListOfPlayerTypes.ToArray(), "File.xml");
+            }
+            else
+            {
+                SerialaizeToXml(typeof(List<Player>),
+                    PlayerTypesRepository.ListOfPlayerTypes.ToArray(), "File.xml");
+                StreamReader fs = new StreamReader("File.xml");
+                string text = fs.ReadToEnd();
+                fs.Close();
+                string json;
+                StreamWriter sw = new StreamWriter("File.json");
+                PluginsController controller = new PluginsController();
+                controller.FindPlugins(@"D:\GitHub\Sports-Clubs-Serialization-To-XML\JsonSerializationPlugin\JsonSerializationPlugin\bin\Debug\JsonSerializationPlugin.dll");
+                ICollection<ISerializationPlugin> plugins = controller.LoadAssembleys<ISerializationPlugin>(typeof(ISerializationPlugin));
+                foreach(var item in plugins)
+                {
+                    json = item.TransformXmlToJson(text);
+                    sw.Write(json);
+                }
+                sw.Close();
+                System.Diagnostics.Process.Start("File.json");
+            }            
+        }
+
+        private void SerialaizeToXml(Type type, Type[] typesToInclude, string fileName)
+        {
+            XmlSerializer serializer = new XmlSerializer(type, typesToInclude);
+            StreamWriter writer = new StreamWriter(fileName);
             serializer.Serialize(writer, repository.Players);
             writer.Close();
-            System.Diagnostics.Process.Start("File.xml");
+            System.Diagnostics.Process.Start(fileName);
         }
 
         private void buttonDeserialize_Click(object sender, EventArgs e)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>),
-                PlayerTypesRepository.ListOfPlayerTypes.ToArray());
-            using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
+            if (!checkBoxJson.Checked)
             {
-                List<Player> newPlayers = (List<Player>)serializer.Deserialize(fs);
-                repository.Players.AddRange(newPlayers);
-                listBoxItems.DataSource = null;
-                listBoxItems.DataSource = repository.Players;
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Player>),
+                    PlayerTypesRepository.ListOfPlayerTypes.ToArray());
+                using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
+                {
+                    List<Player> newPlayers = (List<Player>)serializer.Deserialize(fs);
+                    repository.Players.AddRange(newPlayers);
+                    listBoxItems.DataSource = null;
+                    listBoxItems.DataSource = repository.Players;
+                }
+            }
+            else
+            {
+                
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Player>),
+                   PlayerTypesRepository.ListOfPlayerTypes.ToArray());
+                using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
+                {
+                    List<Player> newPlayers = (List<Player>)serializer.Deserialize(fs);
+                    repository.Players.AddRange(newPlayers);
+                    listBoxItems.DataSource = null;
+                    listBoxItems.DataSource = repository.Players;
+                }
             }
         }
+
 
         private void buttonPlugin_Click(object sender, EventArgs e)
         {
@@ -199,10 +246,9 @@ namespace SportsClubSerializationToXML
             if (result == DialogResult.OK)
             {
                 string file = openFileDialog1.FileName;
-
                 PluginsController controller = new PluginsController();
                 controller.FindPlugins(file);
-                ICollection<INewPlayerPlugin> plugins = controller.LoadAssembleys();
+                ICollection<INewPlayerPlugin> plugins = controller.LoadAssembleys<INewPlayerPlugin>(typeof(INewPlayerPlugin));
                 
                 foreach (var item in plugins)
                 {
@@ -215,6 +261,11 @@ namespace SportsClubSerializationToXML
                     PlayerTypesRepository.ListOfPlayerTypes.Add(item.TypeOfPlayer);
                 }
             }
+        }
+
+        private void checkBoxJson_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

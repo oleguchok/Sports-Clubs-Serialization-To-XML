@@ -18,7 +18,7 @@ namespace SportsClubSerializationToXML
             dllFileNames[0] = path;
         }
 
-        public ICollection<INewPlayerPlugin> LoadAssembleys()
+        public ICollection<T> LoadAssembleys<T>(Type typeOfInterface)
         {
             ICollection<Assembly> assemblies = new List<Assembly>(dllFileNames.Length);
             foreach (string dllFile in dllFileNames)
@@ -27,7 +27,7 @@ namespace SportsClubSerializationToXML
                 Assembly assembly = Assembly.Load(an);
                 assemblies.Add(assembly);
             }
-            Type pluginType = typeof(INewPlayerPlugin);
+            Type pluginType = typeOfInterface;
             ICollection<Type> pluginTypes = new List<Type>();
             foreach (Assembly assembly in assemblies)
             {
@@ -50,10 +50,10 @@ namespace SportsClubSerializationToXML
                     }
                 }
             }
-            ICollection<INewPlayerPlugin> plugins = new List<INewPlayerPlugin>(pluginTypes.Count);
+            ICollection<T> plugins = new List<T>(pluginTypes.Count);
             foreach (Type type in pluginTypes)
             {
-                INewPlayerPlugin plugin = (INewPlayerPlugin)Activator.CreateInstance(type);
+                T plugin = (T)Activator.CreateInstance(type);
                 plugins.Add(plugin);
             }
             return plugins;
