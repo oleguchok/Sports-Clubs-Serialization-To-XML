@@ -212,30 +212,14 @@ namespace SportsClubSerializationToXML
 
         private void buttonDeserialize_Click(object sender, EventArgs e)
         {
-            if (!checkBoxJson.Checked)
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>),
+                PlayerTypesRepository.ListOfPlayerTypes.ToArray());
+            using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Player>),
-                    PlayerTypesRepository.ListOfPlayerTypes.ToArray());
-                using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
-                {
-                    List<Player> newPlayers = (List<Player>)serializer.Deserialize(fs);
-                    repository.Players.AddRange(newPlayers);
-                    listBoxItems.DataSource = null;
-                    listBoxItems.DataSource = repository.Players;
-                }
-            }
-            else
-            {
-                
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Player>),
-                   PlayerTypesRepository.ListOfPlayerTypes.ToArray());
-                using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
-                {
-                    List<Player> newPlayers = (List<Player>)serializer.Deserialize(fs);
-                    repository.Players.AddRange(newPlayers);
-                    listBoxItems.DataSource = null;
-                    listBoxItems.DataSource = repository.Players;
-                }
+                List<Player> newPlayers = (List<Player>)serializer.Deserialize(fs);
+                repository.Players.AddRange(newPlayers);
+                listBoxItems.DataSource = null;
+                listBoxItems.DataSource = repository.Players;
             }
         }
 
@@ -264,6 +248,11 @@ namespace SportsClubSerializationToXML
         }
 
         private void checkBoxJson_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }

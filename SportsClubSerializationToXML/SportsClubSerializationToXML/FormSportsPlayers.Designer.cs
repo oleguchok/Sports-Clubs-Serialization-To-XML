@@ -53,6 +53,7 @@
             this.buttonPlugin = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.checkBoxJson = new System.Windows.Forms.CheckBox();
+            this.checkBoxControlSum = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // listBoxItems
@@ -283,11 +284,23 @@
             this.checkBoxJson.UseVisualStyleBackColor = true;
             this.checkBoxJson.CheckedChanged += new System.EventHandler(this.checkBoxJson_CheckedChanged);
             // 
+            // checkBoxControlSum
+            // 
+            this.checkBoxControlSum.AutoSize = true;
+            this.checkBoxControlSum.Location = new System.Drawing.Point(315, 329);
+            this.checkBoxControlSum.Name = "checkBoxControlSum";
+            this.checkBoxControlSum.Size = new System.Drawing.Size(102, 17);
+            this.checkBoxControlSum.TabIndex = 27;
+            this.checkBoxControlSum.Text = "Use control sum";
+            this.checkBoxControlSum.UseVisualStyleBackColor = true;
+            this.checkBoxControlSum.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // FormSportsPlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 353);
+            this.Controls.Add(this.checkBoxControlSum);
             this.Controls.Add(this.checkBoxJson);
             this.Controls.Add(this.buttonPlugin);
             this.Controls.Add(this.buttonSave);
@@ -346,6 +359,7 @@
         private System.Windows.Forms.Button buttonPlugin;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.CheckBox checkBoxJson;
+        private System.Windows.Forms.CheckBox checkBoxControlSum;
 
     }
 }
