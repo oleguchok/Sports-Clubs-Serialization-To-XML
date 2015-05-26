@@ -294,7 +294,7 @@
             this.checkBoxControlSum.TabIndex = 27;
             this.checkBoxControlSum.Text = "Use control sum";
             this.checkBoxControlSum.UseVisualStyleBackColor = true;
-            this.checkBoxControlSum.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBoxControlSum.CheckedChanged += new System.EventHandler(this.checkBoxControlSum_CheckedChanged);
             // 
             // labelControlSum
             // 

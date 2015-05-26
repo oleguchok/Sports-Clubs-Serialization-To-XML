@@ -8,5 +8,6 @@ namespace SportsClubSerializationToXML.Adapter
 {
     public interface IControlSumTarget
     {
+        
     }
 }

@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Adapter\ControlSumAdapter.cs" />
     <Compile Include="Adapter\IControlSumTarget.cs" />
+    <Compile Include="Controllers\IPluginController.cs" />
     <Compile Include="Creators\BasketballPlayerCreator.cs" />
     <Compile Include="Creators\EditingCreators\BasketballEditingCreator.cs" />
     <Compile Include="Creators\EditingCreators\FootballEditingCreator.cs" />
@@ -78,7 +79,7 @@
     <Compile Include="Handlers\PokerHandlerFormFields.cs" />
     <Compile Include="Handlers\SnookerHandlerFormFields.cs" />
     <Compile Include="Handlers\TennisHandlerFormFields.cs" />
-    <Compile Include="PluginsController.cs" />
+    <Compile Include="Controllers\PluginsController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Players\BasketballPlayer.cs" />

@@ -6,10 +6,11 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using SportsClubSerializationToXML.Controllers;
 
 namespace SportsClubSerializationToXML
 {
-    class PluginsController
+    class PluginsController : IPluginController
     {
         string[] dllFileNames = new string[1];
 
@@ -57,6 +58,6 @@ namespace SportsClubSerializationToXML
                 plugins.Add(plugin);
             }
             return plugins;
-        }       
+        }     
     }
 }

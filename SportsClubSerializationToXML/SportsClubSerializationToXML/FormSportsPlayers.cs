@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PluginContracts;
+using SportsClubSerializationToXML.Adapter;
 using SportsClubSerializationToXML.Creators;
 using SportsClubSerializationToXML.Creators.EditingCreators;
 using SportsClubSerializationToXML.Handlers;
@@ -252,9 +253,20 @@ namespace SportsClubSerializationToXML
             
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxControlSum_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBoxControlSum.Checked)
+            {
+                DialogResult result = openFileDialog1.ShowDialog();
+                if (result == System.Windows.Forms.DialogResult.OK)
+                {                    
+                    IControlSumTarget adapter = new ControlSumAdapter(new PluginsController(),
+                        openFileDialog1.FileName);
+                    
+                }
+            }
         }
+
+
     }
 }
