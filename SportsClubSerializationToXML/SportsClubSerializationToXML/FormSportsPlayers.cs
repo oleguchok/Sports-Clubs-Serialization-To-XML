@@ -204,7 +204,8 @@ namespace SportsClubSerializationToXML
             if (checkBoxControlSum.Checked)
             {
                 labelControlSum.Visible = true;
-                labelControlSum.Text = "Control Sum :" + adapter.GetControlSum("File.xml");
+                adapter.CurrentSum = adapter.GetControlSum("File.xml");
+                labelControlSum.Text = "Control Sum :" + adapter.CurrentSum;
             }
             else
             {
@@ -231,6 +232,15 @@ namespace SportsClubSerializationToXML
                 repository.Players.AddRange(newPlayers);
                 listBoxItems.DataSource = null;
                 listBoxItems.DataSource = repository.Players;
+            }
+            if (checkBoxControlSum.Checked)
+            {
+                if (!adapter.AreSumsEqual(adapter.GetControlSum("File.xml"), adapter.CurrentSum))
+                {
+                    MessageBox.Show("Control sums are not equal!");
+                }
+                else
+                    MessageBox.Show("Controle sums are equal!");
             }
         }
 

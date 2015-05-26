@@ -298,9 +298,10 @@
             // labelControlSum
             // 
             this.labelControlSum.AutoSize = true;
+            this.labelControlSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlSum.Location = new System.Drawing.Point(423, 329);
             this.labelControlSum.Name = "labelControlSum";
-            this.labelControlSum.Size = new System.Drawing.Size(70, 13);
+            this.labelControlSum.Size = new System.Drawing.Size(52, 9);
             this.labelControlSum.TabIndex = 28;
             this.labelControlSum.Text = "Control Sum :";
             this.labelControlSum.Visible = false;
@@ -336,6 +337,8 @@
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.listBoxItems);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormSportsPlayers";
             this.Text = "Sports Players";
             this.ResumeLayout(false);

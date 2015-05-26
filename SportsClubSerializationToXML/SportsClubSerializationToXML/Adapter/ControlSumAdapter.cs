@@ -11,16 +11,25 @@ namespace SportsClubSerializationToXML.Adapter
 {
     class ControlSumAdapter : IControlSumTarget
     {
-        private readonly IControlSum controlSum;
+        private readonly IControlSum controlSumAdaptee;
+        public string CurrentSum { get; set; }
 
         public ControlSumAdapter()
         {
-            controlSum = new ControlSum();
+            controlSumAdaptee = new ControlSum();
         }
         
         public string GetControlSum(string xmlPath)
         {
-            return controlSum.SumFile(xmlPath);
+            return controlSumAdaptee.SumFile(xmlPath);
+        }
+
+        public bool AreSumsEqual(string currentSum, string previousSum)
+        {
+            if (currentSum == previousSum)
+                return true;
+            else
+                return false;
         }
     }
 }

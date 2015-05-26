@@ -8,6 +8,8 @@ namespace SportsClubSerializationToXML.Adapter
 {
     public interface IControlSumTarget
     {
+        string CurrentSum { get; set; }
         string GetControlSum(string xmlPath);
+        bool AreSumsEqual(string currentSum, string previousSum);
     }
 }
