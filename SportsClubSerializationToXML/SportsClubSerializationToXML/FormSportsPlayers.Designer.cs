@@ -283,7 +283,6 @@
             this.checkBoxJson.TabIndex = 26;
             this.checkBoxJson.Text = "Use JSON";
             this.checkBoxJson.UseVisualStyleBackColor = true;
-            this.checkBoxJson.CheckedChanged += new System.EventHandler(this.checkBoxJson_CheckedChanged);
             // 
             // checkBoxControlSum
             // 

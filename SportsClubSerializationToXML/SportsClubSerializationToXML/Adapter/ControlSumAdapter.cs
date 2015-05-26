@@ -1,4 +1,5 @@
 ﻿using PluginContracts;
+using PluginControlSum;
 using SportsClubSerializationToXML.Controllers;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,14 @@ namespace SportsClubSerializationToXML.Adapter
     {
         private readonly IControlSum controlSum;
 
-        public ControlSumAdapter(IPluginController _pluginController, string _path)
+        public ControlSumAdapter()
         {
-            _pluginController.FindPlugins(_path);
-            ICollection<IControlSum> plugins = _pluginController.LoadAssembleys<IControlSum>(typeof(IControlSum));
-            controlSum = plugins.ToList()[0];            
+            controlSum = new ControlSum();
         }
-
-
+        
+        public string GetControlSum(string xmlPath)
+        {
+            return controlSum.SumFile(xmlPath);
+        }
     }
 }

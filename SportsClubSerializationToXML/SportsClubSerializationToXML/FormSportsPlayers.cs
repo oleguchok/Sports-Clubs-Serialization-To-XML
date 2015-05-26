@@ -30,6 +30,7 @@ namespace SportsClubSerializationToXML
         private Label[] labelsForPlayers;
         private TextBox[] textBoxForPlayers;
         int selectedListBoxIndex;
+        IControlSumTarget adapter;
 
         public FormSportsPlayers()
         {
@@ -199,7 +200,16 @@ namespace SportsClubSerializationToXML
                 }
                 sw.Close();
                 System.Diagnostics.Process.Start("File.json");
-            }            
+            }    
+            if (checkBoxControlSum.Checked)
+            {
+                labelControlSum.Visible = true;
+                labelControlSum.Text = "Control Sum :" + adapter.GetControlSum("File.xml");
+            }
+            else
+            {
+                labelControlSum.Visible = false;
+            }
         }
 
         private void SerialaizeToXml(Type type, Type[] typesToInclude, string fileName)
@@ -248,23 +258,9 @@ namespace SportsClubSerializationToXML
             }
         }
 
-        private void checkBoxJson_CheckedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void checkBoxControlSum_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxControlSum.Checked)
-            {
-                DialogResult result = openFileDialog1.ShowDialog();
-                if (result == System.Windows.Forms.DialogResult.OK)
-                {                    
-                    IControlSumTarget adapter = new ControlSumAdapter(new PluginsController(),
-                        openFileDialog1.FileName);
-                    
-                }
-            }
+        {                        
+            adapter = new ControlSumAdapter();
         }
 
 
