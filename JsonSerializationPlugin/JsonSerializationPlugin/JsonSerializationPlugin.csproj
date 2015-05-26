@@ -43,14 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ISerializationPlugin.cs" />
     <Compile Include="JsonSerializationPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\PluginContracts\PluginContracts\PluginContracts.csproj">
-      <Project>{d254d3d4-df72-4a60-b65a-1786dde6a5b4}</Project>
-      <Name>PluginContracts</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using JsonSerializationPlugin;
+using Newtonsoft.Json;
+using Plugin;
 using PluginContracts;
 using SportsClubSerializationToXML.Adapter;
 using SportsClubSerializationToXML.Creators;
@@ -40,6 +42,7 @@ namespace SportsClubSerializationToXML
             textBoxForPlayers = new TextBox[] { textBoxPlayer1, textBoxPlayer2, textBoxPlayer3 };
             listBoxItems.DataSource = null;
             listBoxItems.DataSource = repository.Players;
+            adapter = new ControlSumAdapter();
         }
 
         private void comboBoxSports_SelectedIndexChanged(object sender, EventArgs e)
@@ -202,14 +205,9 @@ namespace SportsClubSerializationToXML
                 System.Diagnostics.Process.Start("File.json");
             }    
             if (checkBoxControlSum.Checked)
-            {
-                labelControlSum.Visible = true;
+            {                
                 adapter.CurrentSum = adapter.GetControlSum("File.xml");
                 labelControlSum.Text = "Control Sum :" + adapter.CurrentSum;
-            }
-            else
-            {
-                labelControlSum.Visible = false;
             }
         }
 
@@ -269,10 +267,11 @@ namespace SportsClubSerializationToXML
         }
 
         private void checkBoxControlSum_CheckedChanged(object sender, EventArgs e)
-        {                        
-            adapter = new ControlSumAdapter();
+        {  
+            if (checkBoxControlSum.Checked)
+                labelControlSum.Visible = true;
+            else
+                labelControlSum.Visible = false;
         }
-
-
     }
 }

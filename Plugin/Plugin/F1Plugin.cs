@@ -1,5 +1,4 @@
-﻿using PluginContracts;
-using SportsClubSerializationToXML.Handlers;
+﻿using SportsClubSerializationToXML.Handlers;
 using System;
 using System.Collections.Generic;
 using System.Linq;

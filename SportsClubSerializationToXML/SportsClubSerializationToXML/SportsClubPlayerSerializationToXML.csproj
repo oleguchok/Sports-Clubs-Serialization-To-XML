@@ -121,13 +121,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\JsonSerializationPlugin\JsonSerializationPlugin\JsonSerializationPlugin.csproj">
+      <Project>{8a6fee35-3da7-4132-b1cf-3e1f9a4246e4}</Project>
+      <Name>JsonSerializationPlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\PlayerContracts\PlayerContracts\PlayerContracts.csproj">
       <Project>{164ebd8c-111f-4dc9-bf7a-9d896eb79543}</Project>
       <Name>PlayerContracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\PluginContracts\PluginContracts\PluginContracts.csproj">
-      <Project>{d254d3d4-df72-4a60-b65a-1786dde6a5b4}</Project>
-      <Name>PluginContracts</Name>
+    <ProjectReference Include="..\..\Plugin\Plugin\Plugin.csproj">
+      <Project>{31108fa3-6e12-438c-96c8-db5022d663af}</Project>
+      <Name>Plugin</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

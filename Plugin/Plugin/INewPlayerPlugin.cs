@@ -1,14 +1,13 @@
 ﻿using SportsClubSerializationToXML.Creators;
 using SportsClubSerializationToXML.Creators.EditingCreators;
 using SportsClubSerializationToXML.Handlers;
-using SportsClubSerializationToXML.Sports_Clubs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PluginContracts
+namespace Plugin
 {
     public interface INewPlayerPlugin
     {
