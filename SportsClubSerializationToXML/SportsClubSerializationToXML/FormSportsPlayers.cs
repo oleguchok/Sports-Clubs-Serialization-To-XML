@@ -2,7 +2,9 @@
 using Newtonsoft.Json;
 using Plugin;
 using PluginContracts;
+using PluginControlSum;
 using SportsClubSerializationToXML.Adapter;
+using SportsClubSerializationToXML.Controllers;
 using SportsClubSerializationToXML.Creators;
 using SportsClubSerializationToXML.Creators.EditingCreators;
 using SportsClubSerializationToXML.Handlers;
@@ -33,6 +35,9 @@ namespace SportsClubSerializationToXML
         private TextBox[] textBoxForPlayers;
         int selectedListBoxIndex;
         IControlSumTarget adapter;
+        ISerializationPlugin serializationPlugin;
+        INewPlayerPlugin newplayerPlugin;
+        IPluginController pluginController;
 
         public FormSportsPlayers()
         {
@@ -42,13 +47,21 @@ namespace SportsClubSerializationToXML
             textBoxForPlayers = new TextBox[] { textBoxPlayer1, textBoxPlayer2, textBoxPlayer3 };
             listBoxItems.DataSource = null;
             listBoxItems.DataSource = repository.Players;
-            adapter = new ControlSumAdapter();
+            adapter = new ControlSumAdapter(new ControlSum());
+            pluginController = new PluginsController();
         }
 
         private void comboBoxSports_SelectedIndexChanged(object sender, EventArgs e)
         {
             HandlerFormFields handler = HandlersFormFieldsRepository.ListOfHandlers[comboBoxSports.SelectedIndex];
             ChangeComponentsAccordingWithSelectedPlayer(handler);
+        }
+
+        private T GetInstanceFromAssembleys<T>(string path)
+        {
+            pluginController.FindPlugins(path);
+            ICollection<T> plugins = pluginController.LoadAssembleys<T>(typeof(T));
+            return plugins.ToList()[0];
         }
 
         private void ChangeComponentsAccordingWithSelectedPlayer(HandlerFormFields handler)
@@ -188,21 +201,16 @@ namespace SportsClubSerializationToXML
             {
                 SerialaizeToXml(typeof(List<Player>),
                     PlayerTypesRepository.ListOfPlayerTypes.ToArray(), "File.xml");
+                serializationPlugin = GetInstanceFromAssembleys<ISerializationPlugin>(@"D:\GitHub\Sports-Clubs-Serialization-To-XML\JsonSerializationPlugin\JsonSerializationPlugin\bin\Debug\JsonSerializationPlugin.dll");
                 StreamWriter sw = new StreamWriter("File.json");
-                PluginsController controller = new PluginsController();
-                controller.FindPlugins(@"D:\GitHub\Sports-Clubs-Serialization-To-XML\JsonSerializationPlugin\JsonSerializationPlugin\bin\Debug\JsonSerializationPlugin.dll");                
-                ICollection<ISerializationPlugin> plugins = controller.LoadAssembleys<ISerializationPlugin>(typeof(ISerializationPlugin));
-                foreach(var item in plugins)
-                {
-                    sw.Write(item.TransformXmlToJson("File.xml"));
-                }
+                sw.Write(serializationPlugin.TransformXmlToJson("File.xml"));
                 sw.Close();
                 System.Diagnostics.Process.Start("File.json");
             }    
             if (checkBoxControlSum.Checked)
             {                
                 adapter.CurrentSum = adapter.GetControlSum("File.xml");
-                labelControlSum.Text = "Control Sum :" + adapter.CurrentSum;
+                labelControlSum.Text = "Check Sum :" + adapter.CurrentSum;
             }
         }
 
@@ -230,10 +238,10 @@ namespace SportsClubSerializationToXML
             {
                 if (!adapter.AreSumsEqual(adapter.GetControlSum("File.xml"), adapter.CurrentSum))
                 {
-                    MessageBox.Show("Control sums are not equal!");
+                    MessageBox.Show("Check sums are not equal!");
                 }
                 else
-                    MessageBox.Show("Control sums are equal!");
+                    MessageBox.Show("Check sums are equal!");
             }
         }
 
@@ -243,21 +251,14 @@ namespace SportsClubSerializationToXML
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                string file = openFileDialog1.FileName;
-                PluginsController controller = new PluginsController();
-                controller.FindPlugins(file);
-                ICollection<INewPlayerPlugin> plugins = controller.LoadAssembleys<INewPlayerPlugin>(typeof(INewPlayerPlugin));
-                
-                foreach (var item in plugins)
-                {
-                    SportsRepository.ListOfSports.Add(item.SportName);
-                    comboBoxSports.Items.Clear();
-                    comboBoxSports.Items.AddRange(SportsRepository.ListOfSports.ToArray());
-                    HandlersFormFieldsRepository.ListOfHandlers.Add(item.Handler);
-                    PlayerCreatorsRepository.Players.Add(item.PlayerCreator);
-                    EditingCreatorsRepository.ListOfEditingCreators.Add(item.PlayerEditingCreator);
-                    PlayerTypesRepository.ListOfPlayerTypes.Add(item.TypeOfPlayer);
-                }
+                newplayerPlugin = GetInstanceFromAssembleys<INewPlayerPlugin>(openFileDialog1.FileName);
+                SportsRepository.ListOfSports.Add(newplayerPlugin.SportName);
+                comboBoxSports.Items.Clear();
+                comboBoxSports.Items.AddRange(SportsRepository.ListOfSports.ToArray());
+                HandlersFormFieldsRepository.ListOfHandlers.Add(newplayerPlugin.Handler);
+                PlayerCreatorsRepository.Players.Add(newplayerPlugin.PlayerCreator);
+                EditingCreatorsRepository.ListOfEditingCreators.Add(newplayerPlugin.PlayerEditingCreator);
+                PlayerTypesRepository.ListOfPlayerTypes.Add(newplayerPlugin.TypeOfPlayer);
             }
         }
 

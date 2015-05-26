@@ -14,9 +14,9 @@ namespace SportsClubSerializationToXML.Adapter
         private readonly IControlSum controlSumAdaptee;
         public string CurrentSum { get; set; }
 
-        public ControlSumAdapter()
+        public ControlSumAdapter(IControlSum _controlSum)
         {
-            controlSumAdaptee = new ControlSum();
+            controlSumAdaptee = _controlSum;
         }
         
         public string GetControlSum(string xmlPath)

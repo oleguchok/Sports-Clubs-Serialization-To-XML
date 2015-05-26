@@ -289,9 +289,9 @@
             this.checkBoxControlSum.AutoSize = true;
             this.checkBoxControlSum.Location = new System.Drawing.Point(315, 329);
             this.checkBoxControlSum.Name = "checkBoxControlSum";
-            this.checkBoxControlSum.Size = new System.Drawing.Size(102, 17);
+            this.checkBoxControlSum.Size = new System.Drawing.Size(100, 17);
             this.checkBoxControlSum.TabIndex = 27;
-            this.checkBoxControlSum.Text = "Use control sum";
+            this.checkBoxControlSum.Text = "Use check sum";
             this.checkBoxControlSum.UseVisualStyleBackColor = true;
             this.checkBoxControlSum.CheckedChanged += new System.EventHandler(this.checkBoxControlSum_CheckedChanged);
             // 
@@ -301,9 +301,9 @@
             this.labelControlSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlSum.Location = new System.Drawing.Point(423, 329);
             this.labelControlSum.Name = "labelControlSum";
-            this.labelControlSum.Size = new System.Drawing.Size(52, 9);
+            this.labelControlSum.Size = new System.Drawing.Size(49, 9);
             this.labelControlSum.TabIndex = 28;
-            this.labelControlSum.Text = "Control Sum :";
+            this.labelControlSum.Text = "Check Sum :";
             this.labelControlSum.Visible = false;
             // 
             // FormSportsPlayers

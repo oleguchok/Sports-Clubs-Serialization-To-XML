@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Adapter\ControlSumAdapter.cs" />
     <Compile Include="Adapter\IControlSumTarget.cs" />
+    <Compile Include="Adapter\MD5CheckSum.cs" />
     <Compile Include="Controllers\IPluginController.cs" />
     <Compile Include="Creators\BasketballPlayerCreator.cs" />
     <Compile Include="Creators\EditingCreators\BasketballEditingCreator.cs" />
