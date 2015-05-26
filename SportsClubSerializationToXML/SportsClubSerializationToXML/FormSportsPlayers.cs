@@ -188,18 +188,13 @@ namespace SportsClubSerializationToXML
             {
                 SerialaizeToXml(typeof(List<Player>),
                     PlayerTypesRepository.ListOfPlayerTypes.ToArray(), "File.xml");
-                StreamReader fs = new StreamReader("File.xml");
-                string text = fs.ReadToEnd();
-                fs.Close();
-                string json;
                 StreamWriter sw = new StreamWriter("File.json");
                 PluginsController controller = new PluginsController();
                 controller.FindPlugins(@"D:\GitHub\Sports-Clubs-Serialization-To-XML\JsonSerializationPlugin\JsonSerializationPlugin\bin\Debug\JsonSerializationPlugin.dll");                
                 ICollection<ISerializationPlugin> plugins = controller.LoadAssembleys<ISerializationPlugin>(typeof(ISerializationPlugin));
                 foreach(var item in plugins)
                 {
-                    json = item.TransformXmlToJson(text);
-                    sw.Write(json);
+                    sw.Write(item.TransformXmlToJson("File.xml"));
                 }
                 sw.Close();
                 System.Diagnostics.Process.Start("File.json");
@@ -221,7 +216,7 @@ namespace SportsClubSerializationToXML
         }
 
         private void buttonDeserialize_Click(object sender, EventArgs e)
-        {
+        {            
             XmlSerializer serializer = new XmlSerializer(typeof(List<Player>),
                 PlayerTypesRepository.ListOfPlayerTypes.ToArray());
             using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
@@ -238,7 +233,7 @@ namespace SportsClubSerializationToXML
                     MessageBox.Show("Control sums are not equal!");
                 }
                 else
-                    MessageBox.Show("Controle sums are equal!");
+                    MessageBox.Show("Control sums are equal!");
             }
         }
 

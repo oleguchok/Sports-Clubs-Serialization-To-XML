@@ -10,16 +10,10 @@ namespace JsonSerializationPlugin
     public interface ISerializationPlugin
     {
         /// <summary>
-        /// Parse you xml string to json string
+        /// Parse you xml to json string. Take path of your Xml file.
         /// </summary>
-        /// <param name="xml"></param>
+        /// <param name="xmlPath"></param>
         /// <returns></returns>
-        string TransformXmlToJson(string xml);
-        /// <summary>
-        /// Parse you json string to XmlDocument
-        /// </summary>
-        /// <param name="json"></param>
-        /// <returns></returns>
-        XmlDocument TransformJsonToXml(string json);
+        string TransformXmlToJson(string xmlPath);
     }
 }
