@@ -189,7 +189,7 @@ namespace SportsClubSerializationToXML
                 string json;
                 StreamWriter sw = new StreamWriter("File.json");
                 PluginsController controller = new PluginsController();
-                controller.FindPlugins(@"D:\GitHub\Sports-Clubs-Serialization-To-XML\JsonSerializationPlugin\JsonSerializationPlugin\bin\Debug\JsonSerializationPlugin.dll");
+                controller.FindPlugins(@"D:\GitHub\Sports-Clubs-Serialization-To-XML\JsonSerializationPlugin\JsonSerializationPlugin\bin\Debug\JsonSerializationPlugin.dll");                
                 ICollection<ISerializationPlugin> plugins = controller.LoadAssembleys<ISerializationPlugin>(typeof(ISerializationPlugin));
                 foreach(var item in plugins)
                 {
@@ -249,7 +249,7 @@ namespace SportsClubSerializationToXML
 
         private void checkBoxJson_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

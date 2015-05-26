@@ -57,6 +57,6 @@ namespace SportsClubSerializationToXML
                 plugins.Add(plugin);
             }
             return plugins;
-        }
+        }       
     }
 }

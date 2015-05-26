@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ForeignPluginContracts">
+      <HintPath>..\..\PluginContracts\ForeignPluginContracts.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -49,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\ControlSumAdapter.cs" />
+    <Compile Include="Adapter\IControlSumTarget.cs" />
     <Compile Include="Creators\BasketballPlayerCreator.cs" />
     <Compile Include="Creators\EditingCreators\BasketballEditingCreator.cs" />
     <Compile Include="Creators\EditingCreators\FootballEditingCreator.cs" />
@@ -124,6 +129,7 @@
       <Name>PluginContracts</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

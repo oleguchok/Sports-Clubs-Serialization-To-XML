@@ -54,6 +54,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.checkBoxJson = new System.Windows.Forms.CheckBox();
             this.checkBoxControlSum = new System.Windows.Forms.CheckBox();
+            this.labelControlSum = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBoxItems
@@ -295,11 +296,22 @@
             this.checkBoxControlSum.UseVisualStyleBackColor = true;
             this.checkBoxControlSum.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // labelControlSum
+            // 
+            this.labelControlSum.AutoSize = true;
+            this.labelControlSum.Location = new System.Drawing.Point(423, 329);
+            this.labelControlSum.Name = "labelControlSum";
+            this.labelControlSum.Size = new System.Drawing.Size(70, 13);
+            this.labelControlSum.TabIndex = 28;
+            this.labelControlSum.Text = "Control Sum :";
+            this.labelControlSum.Visible = false;
+            // 
             // FormSportsPlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 353);
+            this.Controls.Add(this.labelControlSum);
             this.Controls.Add(this.checkBoxControlSum);
             this.Controls.Add(this.checkBoxJson);
             this.Controls.Add(this.buttonPlugin);
@@ -360,6 +372,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.CheckBox checkBoxJson;
         private System.Windows.Forms.CheckBox checkBoxControlSum;
+        private System.Windows.Forms.Label labelControlSum;
 
     }
 }
